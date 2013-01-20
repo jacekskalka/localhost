@@ -1,0 +1,22 @@
+
+<div style=" position:fixed; top : 20%; left:30%;"> 
+<form action="{{ path('informacje_main_main_administracja_login') }}" method="POST" {{ form_enctype(form) }} >
+  {{ form_errors(form) }}
+  
+<table>
+<tr>
+ <td>   {{ form_label(form.name) }}  </td>
+ <td>   {{ form_widget(form.name) }} </td>
+ <td>   {{ form_errors(form.name) }} </td>
+</tr>
+<tr>
+ <td>   {{ form_label(form.password) }}  </td>
+ <td>   {{ form_widget(form.password) }} </td>
+ <td>   {{ form_errors(form.password) }} </td>
+</tr>
+     {{ form_rest(form) }}
+</table>
+<input type="submit" />
+</form>
+
+</div>

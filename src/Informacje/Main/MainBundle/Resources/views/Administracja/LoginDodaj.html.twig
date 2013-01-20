@@ -1,0 +1,77 @@
+<html>
+<head>
+<title> Dodaj strone </title>
+<style>
+ textarea { width : 450px; height : 60px; }
+ #form_content { width : 950px; height : 500px; margin : 10px;} 
+ #form_header3 { width : 400px; height : 400px; margin : 10px; }
+ #form_header2 { width : 400px; height : 100px; margin : 10px; }
+ #form_header1 { width : 250px; height : 50px; margin : 10px; resize:none; }
+</style>
+</head>
+
+
+
+<body>
+<div id="wrapper">
+<form action="{{ path('informacje_main_main_administracja_logindodaj') }}" method="post" {{ form_enctype(form) }}>
+
+
+
+<div id="file_upload" style="float:left; width : 500px;  background-color : orange;border : 1px solid black; padding : 10px; margin-right:10px;">
+
+GALERIA <hr/>
+
+{{ form_widget(form.file1) }} {{ form_errors(form.file1) }}</br>
+{{ form_widget(form.description1) }} {{ form_errors(form.description1) }} </br>
+
+{{ form_widget(form.file2) }} {{ form_errors(form.file2) }} </br>  
+{{ form_widget(form.description2) }}  {{ form_errors(form.description2) }}</br>
+{{ form_widget(form.file3) }} {{ form_errors(form.file3) }} </br>
+{{ form_widget(form.description3) }} {{ form_errors(form.description3) }} </br>
+{{ form_widget(form.file4) }} {{ form_errors(form.file4) }} </br>
+{{ form_widget(form.description4) }} {{ form_errors(form.description4) }} </br>
+{{ form_widget(form.file5) }} {{ form_errors(form.file5) }} </br>
+{{ form_widget(form.description5) }} {{ form_errors(form.description5) }} </br>
+{{ form_widget(form.file6) }} {{ form_errors(form.file6) }} </br>
+{{ form_widget(form.description6) }} {{ form_errors(form.description6) }} </br>
+{{ form_widget(form.file7) }} {{ form_errors(form.file7) }} </br>
+{{ form_widget(form.description7) }} {{ form_errors(form.description7) }} </br>
+{{ form_widget(form.file8) }} {{ form_errors(form.file8) }} </br>
+{{ form_widget(form.description8) }} {{ form_errors(form.description8) }} </br>
+{{ form_widget(form.file9) }} {{ form_errors(form.file9) }} </br>
+{{ form_widget(form.description9) }} {{ form_errors(form.description9) }} </br>
+{{ form_widget(form.file10) }}  {{ form_errors(form.file10) }} </br>
+{{ form_widget(form.description10) }}  {{ form_errors(form.description10) }} </br>
+
+</div>
+
+<div id="reszta" style="background-color:tan; border 1px solid black; padding : 10px;">
+{{ form_label(form.header1) }}<hr/>
+{{ form_widget(form.header1) }}</br>
+{{ form_errors(form.header1) }}</br>
+{{ form_label(form.header2) }}<hr/>
+{{ form_widget(form.header2) }}</br>
+{{ form_errors(form.header2) }}</br>
+{{ form_label(form.header3) }}<hr/>
+{{ form_widget(form.header3) }}</br>
+{{ form_errors(form.header3) }}</br>
+<hr/>
+{{ form_widget(form.rodzaj) }}</br>
+<hr/>
+		{{ form_errors(form.rodzaj) }}</br>
+		{{ form_errors(form) }}
+
+{{ form_widget(form.content) }}</br>
+{{ form_errors(form.content) }}</br>
+
+
+</div>
+
+     {{ form_rest(form) }}
+
+<input type="submit" />
+</form>
+</div>
+</body>
+</html>

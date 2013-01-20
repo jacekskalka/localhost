@@ -1,0 +1,79 @@
+{% extends '::base.html.twig' %}
+{% block title %} Wiadomości {% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" /> 
+	<link href="{{ asset('css/clock.css') }}" type="text/css" rel="stylesheet" /> 
+{% endblock %}
+{% block body %}
+<div id="wrapper">
+
+
+<div id="header" > 
+		 {# ZEGAREK #}
+<div id="clockHolder" style="position:relative"  >
+	<div class="rotatingWrapper"><img id="hour" src="{{ asset('clock/hour.png') }}" /></div>
+	<div class="rotatingWrapper"><img id="min" src="{{ asset('clock/minute.png') }}" /></div>
+	<div class="rotatingWrapper"><img id="sec" src="{{ asset('clock/second.png') }}" /></div>
+	<img id="clock" src="{{ asset('clock/clock.png') }}" />
+</div>
+<img style="float:left; position:relative" src="{{ asset('img/co_nowego.png') }}" />
+<div style = "width:300px; float:left;margin-top:15px; position:relative">
+ {# GOOGLE #} 
+<script>
+  (function() {
+    var cx = '013821136593592237661:zkiwrjc0wuk';
+    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox></gcse:searchbox>
+</div>
+<div class="spacer" style="clear: both;"></div> {# layout hack #}
+</div>
+
+<div id="content" style="clear:left">
+{# WIADOMOŚCI  #}
+<div class="wiadomości" ><h2>Wiadomości </h2>
+<table class="tabela">{% for wiadomość in wiadomości | reverse %}<tr>
+<td style="width:80px; height:50px;"><div id="mini" style="width:70px;height:45px; background-image: url('{{ asset('uploads/documents') }}/{{ wiadomość.path1 }}') ; 
+background-size:contain; background-repeat: no-repeat; background-position : center  " > &nbsp;</div> </td>
+<td style="width:200px; height:50px;"><a href="{{ path('informacje_main_main_default_strona', { 'slug': wiadomość.id  }) }}">{{ wiadomość.header1 }}
+</a></td></tr>
+{% endfor %}
+</table></div>
+
+{# SPORT  #}
+<div class="wiadomości" ><h2>Sport </h2>
+<table class="tabela">{% for sporty in sport | reverse %}<tr>
+<td style="width:80px; height:50px;"><div id="mini" style="width:70px;height:45px; background-image: url('{{ asset('uploads/documents') }}/{{ sporty.path1 }}') ; 
+background-size:contain; background-repeat: no-repeat; background-position : center  " > &nbsp;</div> </td>
+<td style="width:200px; height:50px;"><a href="{{ path('informacje_main_main_default_strona', { 'slug': sporty.id  }) }}">{{ sporty.header1 }}
+</a></td></tr>
+{% endfor %}
+</table></div>
+
+{# SPORT BIZNES #}
+<div class="wiadomości" ><h2>Biznes </h2>
+<table class="tabela">{% for biznesy in biznes | reverse %}<tr>
+<td style="width:80px; height:50px;"><div id="mini" style="width:70px;height:45px; background-image: url('{{ asset('uploads/documents') }}/{{ biznesy.path1 }}') ; 
+background-size:contain; background-repeat: no-repeat; background-position : center  " > &nbsp;</div> </td>
+<td style="width:200px; height:50px;"><a href="{{ path('informacje_main_main_default_strona', { 'slug': biznesy.id  }) }}">{{ biznesy.header1 }}
+</a></td></tr>
+{% endfor %}
+</table></div>
+<div class="spacer" style="clear: both;"></div> {# layout hack #}
+</div>
+
+
+
+<div id="footer"><gcse:searchresults></gcse:searchresults> </div>
+</div>
+{% endblock %}
+{% block javascripts %}  {# javascript dla zegarka #}
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/jqueryRotate.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/clock.js') }}" > </script>
+{% endblock %}
+

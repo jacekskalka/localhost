@@ -1,0 +1,82 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} {{ wiadomość.header1 }}  {% endblock %}
+{% block stylesheets %}
+	<link href="{{ asset('css/strona.css') }}" type="text/css" rel="stylesheet" /> 
+{% endblock %}
+{% block body %}
+<div id="wrapper">
+<h1> {{ wiadomość.header2 }} </h1>
+
+{# GALERIA #}
+		{# MAŁA #}
+<div id="galeria">
+<table><tr>
+<td><a href="#" id="prev" ><img class="arrow" src="{{ asset('img/db_left_arrow.png') }}"/></a></td>
+<td>
+<ul id="small_list" style="list-style : none">
+{% for i in 0..files|length-1 %}
+<li class="li_{{ loop.index }}" style="float:left; padding : 5px; {% if loop.index > 5 %} display : none; {% endif %}  ">
+
+<div style="width:60px;height:40px ;background-image:url('{{ asset('uploads/documents') }}/{{ files[i] }}');
+background-size:contain;background-position:center;background-repeat:no-repeat;"> &nbsp; </div>
+{# <img style="height : 40px;width:60px;" src="{{ asset('uploads/documents') }}/{{ files[i] }}" /> #} 
+
+</li>
+{% endfor %}
+</ul>
+</td>
+<td><a href="#" id="next"><img class="arrow" src="{{ asset('img/db_right_arrow.png') }}"/></a></td>
+</tr></table>
+		{# DUŻA #}
+<table><tr>
+<td><a id="prev_big" href="#"><img class="arrow" src="{{ asset('img/left_arrow.png') }}"/></a> <td>
+<td>
+
+<div id="big" style="width:440px;height:350px ;background-image:url('{{ asset('uploads/documents') }}/{{ files[0] }}');
+background-size:contain;background-position:center;background-repeat:no-repeat;"> &nbsp; </div>
+{# <img  id="big" src="{{ asset('uploads/documents') }}/{{ files[0] }}"  /> #}
+<td>
+<td><a id="next_big" href="#"><img class="arrow" src="{{ asset('img/right_arrow.png') }}"/></a> <td>
+</tr></table>
+</div>
+
+{# CONTENT #}
+<div id="header3">
+<h4> {{ wiadomość.header3 }} </h4>
+</div>
+<div id="content" > 
+<p> {{ wiadomość.content }} </p>
+</div>
+
+{# KOMENTARZE - DODAJ #}
+<form action="{{ path('informacje_main_main_default_strona', { 'slug': wiadomość.id  }) }}" method="post" {{ form_enctype(form) }}>
+{{ form_widget(form.komentarz) }} {{ form_errors(form.komentarz) }} </br>  
+{{ form_widget(form.podpis) }} {{ form_errors(form.podpis) }} </br>  
+{{ form_rest(form) }}
+{{ form_errors(form) }}
+<input type="submit" />
+</form>
+{# KOMENTARZE - LISTING #}
+<hr/>
+
+
+{% for komentarz in komentarze %}
+<div class="komentarz"</div> <i> {{ komentarz.podpis }}</i> | {{ komentarz.czas.date }} 
+<em style="float:right"> {{ komentarz.minus }} </em>
+<em style="display:none" > {{ komentarz.id }} </em>
+<img class="minus" style="width:20px;float:right;" src="{{ asset('img/thumb_down.png') }}"/></a>
+<img class="plus" style="width:20px;float:right;" src="{{ asset('img/thumb_up.png') }}"/></a>
+<em style="float:right"> {{ komentarz.plus }} </em>
+ <hr/> {{ komentarz.komentarz |nl2br }} </br> </div>
+ <div class="komentarz2" style="display:none;"> komentarz....</div>
+ <em class="odpowiedz" style="margin-left:510px; color:white; background-color:red"> Odpowiedz </em> 
+{% endfor %}
+
+</div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/galeria.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/komentarze.js') }}" > </script>
+{% endblock %}
