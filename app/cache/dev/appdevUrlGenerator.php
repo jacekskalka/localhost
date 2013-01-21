@@ -40,6 +40,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'informacje_main_main_default_index' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\DefaultController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),),
         'informacje_main_main_default_strona' => array (  0 =>   array (    0 => 'slug',  ),  1 =>   array (    '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\DefaultController::stronaAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]+',      3 => 'slug',    ),    1 =>     array (      0 => 'text',      1 => '/Strona',    ),  ),),
         'informacje_main_main_default_ajax' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\DefaultController::ajaxAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/ajax',    ),  ),),
+        'informacje_main_main_default_komentarz' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\DefaultController::komentarzAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/komentarz',    ),  ),),
     );
 
     /**

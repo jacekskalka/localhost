@@ -58,6 +58,11 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\DefaultController::ajaxAction',  '_route' => 'informacje_main_main_default_ajax',);
         }
 
+        // informacje_main_main_default_komentarz
+        if ($pathinfo === '/komentarz') {
+            return array (  '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\DefaultController::komentarzAction',  '_route' => 'informacje_main_main_default_komentarz',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

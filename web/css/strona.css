@@ -71,14 +71,21 @@ h1 { color : #1EBED4; text-align : center; }
 
 /* KOMENTARZE */
 
-#form_komentarz { width : 600px; height : 100px; resize: none; }
+form textarea { width : 600px; height : 100px; resize: none; }
 .komentarz { background-color : #cce1fc;margin:5px; line-height:1.5em;  height:7.5em; width : 600px; overflow : hidden; 
 			box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			-webkit-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			-moz-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			}
-.komentarz:hover { overflow:visible; height:auto; }
-.komentarz hr { margin : 0px; }
+.komentarz2 { background-color : #cce1fc;margin:5px; line-height:1.5em;  height:7.5em; width : 600px; overflow : hidden; 
+			margin-left:100px; margin-bottom:5px; 
+			box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
+			-webkit-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
+			-moz-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
+			}
+
+
+.komentarz hr, .komentarz2 hr, { margin : 0px; }
 
 
 

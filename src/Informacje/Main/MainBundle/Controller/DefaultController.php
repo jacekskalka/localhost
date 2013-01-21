@@ -8,7 +8,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Informacje\Main\MainBundle\Entity\Strona;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Informacje\Main\MainBundle\Entity\Komentarz;
+use Informacje\Main\MainBundle\Entity\Komentarz2;
 use Informacje\Main\MainBundle\Entity\Visitor;
+use Informacje\Main\MainBundle\Entity\Visitor2;
+use Symfony\Component\Form\FormFactory;
+use Informacje\Main\MainBundle\Form\KomentarzType;
+use Informacje\Main\MainBundle\Form\Komentarz2Type;
+use Symfony\Component\Form\FormTypeInterface;
 
 class DefaultController extends Controller
 {
@@ -29,7 +35,17 @@ class DefaultController extends Controller
 	$em ->persist($visitor);
 	$em ->flush();
 	}
-    return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes);
+			   // POGODA
+	$xml = simplexml_load_file('http://free.worldweatheronline.com/feed/weather.ashx?q=77.236.7.129&format=xml&num_of_days=3&key=8eb41b738b154111122509');
+    $pogoda = array();
+	$pogoda[0]=$xml->current_condition->weatherIconUrl;
+	$pogoda[1]=$xml->current_condition->temp_C.'°C';
+	$pogoda[2]=$xml->weather[1]->weatherIconUrl;
+	$pogoda[3]='od '.$xml->weather[1]->tempMinC.' do '.$xml->weather[1]->tempMaxC.'°C';
+	$pogoda[4]=$xml->weather[2]->weatherIconUrl;
+	$pogoda[5]='od '.$xml->weather[2]->tempMinC.' do '.$xml->weather[2]->tempMaxC.'°C';
+	
+	return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes, 'pogoda'=>$pogoda);
     }
 	
 	/** @Route("/Strona/{slug}") @Template() */
@@ -50,26 +66,58 @@ class DefaultController extends Controller
 
 				//KOMENTARZE - DODAWANIE	
 	$komentarz = new Komentarz();
-	$form=$this->createFormBuilder($komentarz)
+	$komentarztype = new KomentarzType();
+	$form=$this->get('form.factory')->createNamedBuilder('form1name',$komentarztype)
 	     ->add('komentarz','textarea',array('required'=>true))
 		 ->add('podpis','text', array('required'=>true))
 		 ->getForm();
 		 
+	$komentarz2 = new Komentarz2();
+	$komentarz2type = new Komentarz2Type();
+	$form2=$this->get('form.factory')->createNamedBuilder('form2name',$komentarz2type )
+	     ->add('komentarz','textarea',array('required'=>true))
+		 ->add('podpis','text', array('required'=>true))
+		 ->add('hidden', 'hidden', array( 'data' => 'id',))
+		 ->getForm();	 
+	$request = $this->getRequest();	 
 	if ($this->getRequest()->getMethod() === 'POST') {
-	$form->bindRequest($this->getRequest());
-		if ($form->isValid()) {			 
-		$em = $this->getDoctrine()->getEntityManager(); 
-		$strona=$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($slug);
-		$komentarz->setStrona($strona);
-		$em -> persist($komentarz);
-		$em -> flush();	
-		return $this -> redirect($this->generateUrl('informacje_main_main_default_strona', array('slug'=>$slug)),301);
-		}
-	}	 
+	     if ($request->request->has('form1name')) {
+			$form->bindRequest($this->getRequest());
+			if ($form->isValid()) {			 
+				$em = $this->getDoctrine()->getEntityManager(); 
+				$strona=$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($slug);
+				$komentarz->setKomentarz($form["komentarz"]->getData());
+				$komentarz->setPodpis($form["podpis"]->getData());
+				$komentarz->setStrona($strona);
+				$em -> persist($komentarz);
+				$em -> flush();	
+				return $this -> redirect($this->generateUrl('informacje_main_main_default_strona', array('slug'=>$slug)),301);
+			}}	
+		if ($request->request->has('form2name')) {
+			$form2->bindRequest($this->getRequest());
+			if ($form2->isValid()) {		
+				$em = $this->getDoctrine()->getEntityManager(); 
+				$komentarz_id = $form2["hidden"]->getData();
+				$komentarz=$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz')->findOneById($komentarz_id);
+				
+				$komentarz2->setKomentarz($form2["komentarz"]->getData());
+				$komentarz2->setPodpis($form2["podpis"]->getData());
+				//var_dump($form2);
+				$komentarz2->setParent($komentarz);
+				$em -> persist($komentarz2);
+				$em -> flush();
+				return $this -> redirect($this->generateUrl('informacje_main_main_default_strona', array('slug'=>$slug)),301);
+		    }}
+	}
+		 
 				// KOMENTARZE -LISTING
 	$komentarze =$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz')->findByStrona($slug);
-   
-	return array('wiadomość'=>$wiadomość,'files'=>$files, 'form'=>$form->createView(),'komentarze'=>$komentarze);
+
+	$komentarze2 =$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz2')->findByParent($komentarze);
+
+
+	return array('wiadomość'=>$wiadomość,'files'=>$files, 'form'=>$form->createView(),
+	             'form2'=>$form2->createView(),'komentarze'=>$komentarze,'komentarze2'=>$komentarze2 );
 	}
 	
 	
@@ -133,6 +181,16 @@ class DefaultController extends Controller
 	
 	//return array();
 	}
+		
+
+	
+	/** @Route("/komentarz") */
+	public function komentarzAction(){
 	
 	
-}
+	
+	
+	
+	}
+	
+}	

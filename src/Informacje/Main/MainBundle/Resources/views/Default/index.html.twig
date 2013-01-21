@@ -4,12 +4,13 @@
 	<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" /> 
 	<link href="{{ asset('css/clock.css') }}" type="text/css" rel="stylesheet" /> 
 {% endblock %}
+
 {% block body %}
 <div id="wrapper">
 
 
 <div id="header" > 
-		 {# ZEGAREK #}
+  {# ZEGAREK #}
 <div id="clockHolder" style="position:relative"  >
 	<div class="rotatingWrapper"><img id="hour" src="{{ asset('clock/hour.png') }}" /></div>
 	<div class="rotatingWrapper"><img id="min" src="{{ asset('clock/minute.png') }}" /></div>
@@ -31,6 +32,28 @@
 <gcse:searchbox></gcse:searchbox>
 </div>
 <div class="spacer" style="clear: both;"></div> {# layout hack #}
+</div>
+
+
+{# PRZYKRYTY HEADER #}
+<div id="header2"> 
+	<div id="pogoda">
+	<table id="pogoda_table">
+	<tr>
+	<td>Teraz</td><td>Jutro</td><td>Po Jutrze</td>
+	<tr/>
+	<tr>
+	<td><img style="width:90px; height: 60px " src="{{ pogoda[0] }}" /> </td>
+	<td><img style="width:90px; height: 60px" src="{{ pogoda[2] }}" /> </td>
+	<td><img style="width:90px; height: 60px" src="{{ pogoda[4] }}" /> </td>
+	</tr>
+	<tr>
+	<td>{{ pogoda[1] }}</td>
+	<td>{{ pogoda[3] }}</td>
+	<td>{{ pogoda[5] }}</td>
+	<tr/>
+	</table>
+	</div>
 </div>
 
 <div id="content" style="clear:left">
@@ -73,7 +96,11 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 {% endblock %}
 {% block javascripts %}  {# javascript dla zegarka #}
 <script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
-<script type="text/javascript" src="{{ asset('js/jqueryRotate.js') }}" > </script>
+{# <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" > </script>#}
+<script type="text/javascript" src="{{ asset('js/main.js') }}" > </script>
+
+<script type="text/javascript" src="{{ asset('js/rotate.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/clock.js') }}" > </script>
+
 {% endblock %}
 

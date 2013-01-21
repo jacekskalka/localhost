@@ -141,10 +141,28 @@ class Komentarz extends \Informacje\Main\MainBundle\Entity\Komentarz implements 
         return parent::getVisitor();
     }
 
+    public function addChildren(\Informacje\Main\MainBundle\Entity\Komentarz2 $children)
+    {
+        $this->__load();
+        return parent::addChildren($children);
+    }
+
+    public function removeChildren(\Informacje\Main\MainBundle\Entity\Komentarz2 $children)
+    {
+        $this->__load();
+        return parent::removeChildren($children);
+    }
+
+    public function getChildren()
+    {
+        $this->__load();
+        return parent::getChildren();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'komentarz', 'podpis', 'czas', 'plus', 'minus', 'strona', 'visitor');
+        return array('__isInitialized__', 'id', 'komentarz', 'podpis', 'czas', 'plus', 'minus', 'strona', 'visitor', 'children');
     }
 
     public function __clone()

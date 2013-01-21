@@ -143,126 +143,216 @@ background-size:contain;background-position:center;background-repeat:no-repeat;\
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["files"]) ? $context["files"] : $this->getContext($context, "files")), 0, array(), "array"), "html", null, true);
         echo "');
 background-size:contain;background-position:center;background-repeat:no-repeat;\"> &nbsp; </div>
-";
-        // line 39
-        echo "<td>
+<td>
 <td><a id=\"next_big\" href=\"#\"><img class=\"arrow\" src=\"";
-        // line 40
+        // line 39
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/right_arrow.png"), "html", null, true);
         echo "\"/></a> <td>
 </tr></table>
 </div>
 
 ";
-        // line 45
+        // line 44
         echo "<div id=\"header3\">
 <h4> ";
-        // line 46
+        // line 45
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["wiadomość"]) ? $context["wiadomość"] : $this->getContext($context, "wiadomość")), "header3"), "html", null, true);
         echo " </h4>
 </div>
 <div id=\"content\" > 
 <p> ";
-        // line 49
+        // line 48
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["wiadomość"]) ? $context["wiadomość"] : $this->getContext($context, "wiadomość")), "content"), "html", null, true);
         echo " </p>
 </div>
 
 ";
-        // line 53
+        // line 52
         echo "<form action=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("informacje_main_main_default_strona", array("slug" => $this->getAttribute((isset($context["wiadomość"]) ? $context["wiadomość"] : $this->getContext($context, "wiadomość")), "id"))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo ">
 ";
-        // line 54
+        // line 53
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "komentarz"), 'widget');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "komentarz"), 'errors');
         echo " </br>  
 ";
-        // line 55
+        // line 54
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "podpis"), 'widget');
         echo " ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "podpis"), 'errors');
         echo " </br>  
 ";
-        // line 56
+        // line 55
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 ";
-        // line 57
+        // line 56
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 <input type=\"submit\" />
 </form>
 ";
-        // line 61
-        echo "<hr/>
+        // line 60
+        echo " <div class=\"skomentuj2\" style=\"display:none;  position: fixed; top: 30%; left: 30%;background : #CCE1FC; padding: 20px;border:1px solid black\"> 
+ <em>Twoja odpowiedź : </em> <em class=\"zamknij\" style=\"float:right\"> Zamknij </em>
+ </br>
+ <form class=\"form2\" action=\"";
+        // line 63
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("informacje_main_main_default_strona", array("slug" => $this->getAttribute((isset($context["wiadomość"]) ? $context["wiadomość"] : $this->getContext($context, "wiadomość")), "id"))), "html", null, true);
+        echo "\" method=\"post\" ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
+        echo ">
+";
+        // line 64
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), "komentarz"), 'widget');
+        echo " ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), "komentarz"), 'errors');
+        echo " </br>  
+";
+        // line 65
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), "podpis"), 'widget');
+        echo " ";
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), "podpis"), 'errors');
+        echo " </br> 
+";
+        // line 66
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), "hidden"), 'widget');
+        echo " 
+";
+        // line 68
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), 'rest');
+        echo "
+";
+        // line 69
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form2"]) ? $context["form2"] : $this->getContext($context, "form2")), 'errors');
+        echo "
+<input type=\"submit\" />
+</form></div>
+
 
 
 ";
-        // line 64
+        // line 76
+        echo "<hr/>
+
+";
+        // line 79
+        echo "
+";
+        // line 80
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["komentarze"]) ? $context["komentarze"] : $this->getContext($context, "komentarze")));
         foreach ($context['_seq'] as $context["_key"] => $context["komentarz"]) {
-            // line 65
-            echo "<div class=\"komentarz\"</div> <i> ";
+            // line 81
+            echo "<div class=\"komentarz\"> <i> ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "podpis"), "html", null, true);
             echo "</i> | ";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "czas"), "date"), "html", null, true);
             echo " 
 <em style=\"float:right\"> ";
-            // line 66
+            // line 82
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "minus"), "html", null, true);
             echo " </em>
 <em style=\"display:none\" > ";
-            // line 67
+            // line 83
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "id"), "html", null, true);
             echo " </em>
 <img class=\"minus\" style=\"width:20px;float:right;\" src=\"";
-            // line 68
+            // line 84
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/thumb_down.png"), "html", null, true);
             echo "\"/></a>
 <img class=\"plus\" style=\"width:20px;float:right;\" src=\"";
-            // line 69
+            // line 85
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/thumb_up.png"), "html", null, true);
             echo "\"/></a>
 <em style=\"float:right\"> ";
-            // line 70
+            // line 86
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "plus"), "html", null, true);
             echo " </em>
  <hr/> ";
-            // line 71
+            // line 87
             echo nl2br(twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "komentarz"), "html", null, true));
-            echo " </br> </div>
- <div class=\"komentarz2\" style=\"display:none;\"> komentarz....</div>
- <em class=\"odpowiedz\" style=\"margin-left:510px; color:white; background-color:red\"> Odpowiedz </em> 
+            echo " </br> </div> 
+ <em class=\"odpowiedz\" style=\"margin-left:10px; color:white; background-color:green; float:left\"> Odpowiedz </em> 
+ <em style=\"display:none\" > ";
+            // line 89
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "id"), "html", null, true);
+            echo " </em>
+\t";
+            // line 90
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["komentarze2"]) ? $context["komentarze2"] : $this->getContext($context, "komentarze2")));
+            foreach ($context['_seq'] as $context["_key"] => $context["komentarz2"]) {
+                // line 91
+                echo "\t\t";
+                if (($this->getAttribute($this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "parent"), "id") == $this->getAttribute((isset($context["komentarz"]) ? $context["komentarz"] : $this->getContext($context, "komentarz")), "id"))) {
+                    // line 92
+                    echo "\t\t<div class=\"komentarz2\"> <i> ";
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "podpis"), "html", null, true);
+                    echo "</i> | ";
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "czas"), "date"), "html", null, true);
+                    echo " 
+\t\t<em style=\"float:right\"> ";
+                    // line 93
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "minus"), "html", null, true);
+                    echo " </em>
+\t\t<em style=\"display:none\" > ";
+                    // line 94
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "id"), "html", null, true);
+                    echo " </em>
+\t\t<img class=\"minus\" style=\"width:20px;float:right;\" src=\"";
+                    // line 95
+                    echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/thumb_down.png"), "html", null, true);
+                    echo "\"/></a>
+\t\t<img class=\"plus\" style=\"width:20px;float:right;\" src=\"";
+                    // line 96
+                    echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/thumb_up.png"), "html", null, true);
+                    echo "\"/></a>
+\t\t<em style=\"float:right\"> ";
+                    // line 97
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "plus"), "html", null, true);
+                    echo " </em>
+        <hr/> ";
+                    // line 98
+                    echo nl2br(twig_escape_filter($this->env, $this->getAttribute((isset($context["komentarz2"]) ? $context["komentarz2"] : $this->getContext($context, "komentarz2")), "komentarz"), "html", null, true));
+                    echo " </br> </div> 
+\t\t";
+                }
+                // line 100
+                echo "\t";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['komentarz2'], $context['_parent'], $context['loop']);
+            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            echo "\t
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['komentarz'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 75
+        // line 102
         echo "
 </div>
 ";
     }
 
-    // line 78
+    // line 105
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 79
+        // line 106
         echo "<script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 80
+        // line 107
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/galeria.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 81
+        // line 108
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/komentarze.js"), "html", null, true);
         echo "\" > </script>
 ";
@@ -280,6 +370,6 @@ background-size:contain;background-position:center;background-repeat:no-repeat;\
 
     public function getDebugInfo()
     {
-        return array (  266 => 81,  262 => 80,  257 => 79,  254 => 78,  248 => 75,  238 => 71,  234 => 70,  230 => 69,  226 => 68,  222 => 67,  218 => 66,  211 => 65,  207 => 64,  202 => 61,  196 => 57,  192 => 56,  186 => 55,  180 => 54,  173 => 53,  167 => 49,  161 => 46,  158 => 45,  151 => 40,  148 => 39,  141 => 36,  135 => 33,  132 => 32,  127 => 29,  123 => 27,  106 => 23,  99 => 21,  89 => 19,  72 => 18,  66 => 15,  62 => 13,  60 => 12,  55 => 9,  52 => 8,  49 => 7,  42 => 5,  39 => 4,  31 => 3,);
+        return array (  356 => 108,  352 => 107,  347 => 106,  344 => 105,  338 => 102,  326 => 100,  321 => 98,  317 => 97,  313 => 96,  309 => 95,  305 => 94,  301 => 93,  294 => 92,  291 => 91,  287 => 90,  283 => 89,  278 => 87,  274 => 86,  270 => 85,  266 => 84,  262 => 83,  258 => 82,  251 => 81,  247 => 80,  244 => 79,  240 => 76,  231 => 69,  227 => 68,  223 => 66,  217 => 65,  211 => 64,  205 => 63,  200 => 60,  194 => 56,  190 => 55,  184 => 54,  178 => 53,  171 => 52,  165 => 48,  159 => 45,  156 => 44,  149 => 39,  141 => 36,  135 => 33,  132 => 32,  127 => 29,  123 => 27,  106 => 23,  99 => 21,  89 => 19,  72 => 18,  66 => 15,  62 => 13,  60 => 12,  55 => 9,  52 => 8,  49 => 7,  42 => 5,  39 => 4,  31 => 3,);
     }
 }

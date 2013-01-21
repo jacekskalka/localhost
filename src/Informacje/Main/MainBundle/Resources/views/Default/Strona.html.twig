@@ -35,7 +35,6 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 
 <div id="big" style="width:440px;height:350px ;background-image:url('{{ asset('uploads/documents') }}/{{ files[0] }}');
 background-size:contain;background-position:center;background-repeat:no-repeat;"> &nbsp; </div>
-{# <img  id="big" src="{{ asset('uploads/documents') }}/{{ files[0] }}"  /> #}
 <td>
 <td><a id="next_big" href="#"><img class="arrow" src="{{ asset('img/right_arrow.png') }}"/></a> <td>
 </tr></table>
@@ -57,20 +56,48 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 {{ form_errors(form) }}
 <input type="submit" />
 </form>
+{# KOMENTARZE -ODPOWIEDZ #}
+ <div class="skomentuj2" style="display:none;  position: fixed; top: 30%; left: 30%;background : #CCE1FC; padding: 20px;border:1px solid black"> 
+ <em>Twoja odpowiedź : </em> <em class="zamknij" style="float:right"> Zamknij </em>
+ </br>
+ <form class="form2" action="{{ path('informacje_main_main_default_strona', { 'slug': wiadomość.id  }) }}" method="post" {{ form_enctype(form) }}>
+{{ form_widget(form2.komentarz) }} {{ form_errors(form2.komentarz) }} </br>  
+{{ form_widget(form2.podpis) }} {{ form_errors(form2.podpis) }} </br> 
+{{ form_widget(form2.hidden) }} 
+{# <input id="hidden_input" name="hidden_input" type="hidden"  value="Value"/> #}
+{{ form_rest(form2) }}
+{{ form_errors(form2) }}
+<input type="submit" />
+</form></div>
+
+
+
 {# KOMENTARZE - LISTING #}
 <hr/>
 
+{# {{ dump(komentarze2) }} #}
 
 {% for komentarz in komentarze %}
-<div class="komentarz"</div> <i> {{ komentarz.podpis }}</i> | {{ komentarz.czas.date }} 
+<div class="komentarz"> <i> {{ komentarz.podpis }}</i> | {{ komentarz.czas.date }} 
 <em style="float:right"> {{ komentarz.minus }} </em>
 <em style="display:none" > {{ komentarz.id }} </em>
 <img class="minus" style="width:20px;float:right;" src="{{ asset('img/thumb_down.png') }}"/></a>
 <img class="plus" style="width:20px;float:right;" src="{{ asset('img/thumb_up.png') }}"/></a>
 <em style="float:right"> {{ komentarz.plus }} </em>
- <hr/> {{ komentarz.komentarz |nl2br }} </br> </div>
- <div class="komentarz2" style="display:none;"> komentarz....</div>
- <em class="odpowiedz" style="margin-left:510px; color:white; background-color:red"> Odpowiedz </em> 
+ <hr/> {{ komentarz.komentarz |nl2br }} </br> </div> 
+ <em class="odpowiedz" style="margin-left:10px; color:white; background-color:green; float:left"> Odpowiedz </em> 
+ <em style="display:none" > {{ komentarz.id }} </em>
+	{% for komentarz2 in komentarze2 %}
+		{% if komentarz2.parent.id == komentarz.id %}
+		<div class="komentarz2"> <i> {{ komentarz2.podpis }}</i> | {{ komentarz2.czas.date }} 
+		<em style="float:right"> {{ komentarz2.minus }} </em>
+		<em style="display:none" > {{ komentarz2.id }} </em>
+		<img class="minus" style="width:20px;float:right;" src="{{ asset('img/thumb_down.png') }}"/></a>
+		<img class="plus" style="width:20px;float:right;" src="{{ asset('img/thumb_up.png') }}"/></a>
+		<em style="float:right"> {{ komentarz2.plus }} </em>
+        <hr/> {{ komentarz2.komentarz |nl2br }} </br> </div> 
+		{% endif %}
+	{% endfor %}	
 {% endfor %}
 
 </div>

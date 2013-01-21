@@ -65,10 +65,13 @@ class Komentarz
 	
 	/** @ORM\OneToMany(targetEntity="Visitor", mappedBy="komentarz" ) */
 	public $visitor;
+	/** @ORM\OneToMany(targetEntity="Komentarz2", mappedBy="parent" ) */
+	public $children;
 	public function __construct()
     {
         $this->visitor = new ArrayCollection();
-    }
+		 $this->children = new ArrayCollection();
+	}
 	
 	
 	/**
@@ -244,5 +247,38 @@ public function getCzas()
     public function getVisitor()
     {
         return $this->visitor;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \Informacje\Main\MainBundle\Entity\Komentarz2 $children
+     * @return Komentarz
+     */
+    public function addChildren(\Informacje\Main\MainBundle\Entity\Komentarz2 $children)
+    {
+        $this->children[] = $children;
+    
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \Informacje\Main\MainBundle\Entity\Komentarz2 $children
+     */
+    public function removeChildren(\Informacje\Main\MainBundle\Entity\Komentarz2 $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
     }
 }

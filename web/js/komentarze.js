@@ -31,5 +31,14 @@ var id = $(this).prev().prev().text();
 // drugi komentarz ( odpowiedz)
 
 $('.odpowiedz').click(function(){
- $(this).prev().show();
-})
+ $('.skomentuj2').show();
+ var komentarz_id = $(this).next().text();
+ $('#form2name_hidden').attr('value',komentarz_id);
+ })
+
+
+
+$('.zamknij').click(function(){
+
+ $('.skomentuj2').hide();
+});

@@ -22,3 +22,4 @@ setInterval(function () {
 	$("#hour").rotate(angleHour);
 
 }, 1000);
+
