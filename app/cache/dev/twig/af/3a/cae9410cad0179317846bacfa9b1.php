@@ -261,11 +261,9 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
         // line 102
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/rotate.js"), "html", null, true);
         echo "\" > </script>
-<script type=\"text/javascript\" src=\"";
-        // line 103
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/clock.js"), "html", null, true);
-        echo "\" > </script>
-
+";
+        // line 104
+        echo "
 ";
     }
 
@@ -281,6 +279,6 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 
     public function getDebugInfo()
     {
-        return array (  266 => 103,  262 => 102,  256 => 100,  251 => 98,  247 => 97,  237 => 90,  234 => 88,  223 => 85,  216 => 83,  210 => 82,  207 => 81,  203 => 78,  192 => 75,  185 => 73,  179 => 72,  176 => 71,  172 => 68,  161 => 65,  154 => 63,  148 => 62,  145 => 61,  135 => 53,  131 => 52,  127 => 51,  121 => 48,  117 => 47,  113 => 46,  104 => 39,  99 => 35,  85 => 22,  80 => 20,  75 => 18,  71 => 17,  67 => 16,  63 => 15,  60 => 14,  54 => 9,  51 => 8,  45 => 5,  40 => 4,  37 => 3,  31 => 2,);
+        return array (  266 => 104,  262 => 102,  256 => 100,  251 => 98,  247 => 97,  237 => 90,  234 => 88,  223 => 85,  216 => 83,  210 => 82,  207 => 81,  203 => 78,  192 => 75,  185 => 73,  179 => 72,  176 => 71,  172 => 68,  161 => 65,  154 => 63,  148 => 62,  145 => 61,  135 => 53,  131 => 52,  127 => 51,  121 => 48,  117 => 47,  113 => 46,  104 => 39,  99 => 35,  85 => 22,  80 => 20,  75 => 18,  71 => 17,  67 => 16,  63 => 15,  60 => 14,  54 => 9,  51 => 8,  45 => 5,  40 => 4,  37 => 3,  31 => 2,);
     }
 }
