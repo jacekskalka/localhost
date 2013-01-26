@@ -63,7 +63,7 @@ class appProdProjectContainer extends Container
     }
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/wamp/www/INFORMACJE/app/cache/prod/jms_diextra/doctrine/EntityManager_50fc68895ce6c.php';
+        require_once 'C:/wamp/www/INFORMACJE/app/cache/prod/jms_diextra/doctrine/EntityManager_5103104a4e035.php';
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2orm_default_0e2151ddfcacceb1a84c373df1a876e4');
         $b = new \Doctrine\Common\Cache\ArrayCache();
@@ -86,7 +86,7 @@ class appProdProjectContainer extends Container
         $e->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
         $f = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
         $this->get('doctrine.orm.default_manager_configurator')->configure($f);
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager50fc68895ce6c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5103104a4e035_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
     }
     protected function getDoctrine_Orm_DefaultManagerConfiguratorService()
     {
@@ -1332,8 +1332,8 @@ class appProdProjectContainer extends Container
             ),
             'jms_di_extra.cache_dir' => 'C:/wamp/www/INFORMACJE/app/cache/prod/jms_diextra',
             'jms_di_extra.doctrine_integration' => true,
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/INFORMACJE/app/cache/prod/jms_diextra/doctrine/EntityManager_50fc68895ce6c.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager50fc68895ce6c_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/INFORMACJE/app/cache/prod/jms_diextra/doctrine/EntityManager_5103104a4e035.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5103104a4e035_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
             ),
             'security.access.method_interceptor.class' => 'JMS\\SecurityExtraBundle\\Security\\Authorization\\Interception\\MethodSecurityInterceptor',

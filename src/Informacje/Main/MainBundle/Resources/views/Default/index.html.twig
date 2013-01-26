@@ -4,6 +4,10 @@
 	<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" /> 
 	<link href="{{ asset('css/clock.css') }}" type="text/css" rel="stylesheet" /> 
 {% endblock %}
+{% block scripts %}
+
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
+{% endblock %}
 
 {% block body %}
 <div id="wrapper">
@@ -67,6 +71,24 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 {% endfor %}
 </table></div>
 
+{# CAROUSEL #}
+<div id='carousel' style="float:left ; margin-bottom : 10px;">
+<h2>Z ostatniej chwili </h2>
+<div id='carousel_container'>
+  <div id='left_scroll'><img src="{{ asset('img/left.png') }}" /></div>
+  <div id='carousel_inner'>
+        <ul id='carousel_ul'>
+		{% for sporty in sport | reverse %}
+            <li><a href='#'><img src="{{ asset('uploads/documents') }}/{{ sporty.path1 }}" />
+			<span class="carousel_span">{{ sporty.header1 }}</span></a></li>
+		{% endfor %}
+        </ul>
+  </div>
+  <div id='right_scroll'><img src="{{ asset('img/right.png') }}" /></div>
+</div>
+</div>
+
+
 {# SPORT  #}
 <div class="wiadomości" ><h2>Sport </h2>
 <table class="tabela">{% for sporty in sport | reverse %}<tr>
@@ -86,21 +108,67 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 </a></td></tr>
 {% endfor %}
 </table></div>
-<div class="spacer" style="clear: both;"></div> {# layout hack #}
+
+{# SPORT BIZNES #}
+<div id="reklama"> 
+    <div >  REKLAMA </div>
+    <div style="background-color: Maroon" >  TANIO </div>
+ </div>
+
+ <div class="spacer" style="clear: both;"></div> 
+
+
+
+{# SLIDER #}
+<div id="rozrywka" style="float:left; margin-top : 3px;">
+<h2> Rozrywka </h2>
+<div id="s3slider"  >
+    <ul id="s3sliderContent">
+        
+		{% for sporty in sport | reverse %}
+		
+		<li class="s3sliderImage">
+            <img style="width:650px; height:430px" src="{{ asset('uploads/documents') }}/{{ sporty.path1 }}">
+            <span>{{ sporty.header1 }}</span>
+        </li>
+		{% endfor %}
+        <div class="clear s3sliderImage"></div>
+    </ul>
+</div>	
 </div>
 
 
+{# CYCLE PLUGIN  #}
+<div id="cycle_plugin" style="float:left; margin-top:3px; margin-left:3px; background: black;" >
+<h2>Najpopularniejsze </h2></br>
+<div id="s3" class="pics" style="position: relative; float:left"> 
+    <div class="cycle"> <img src="images/beach1.jpg" width="200" height="200" />gdfgdf </div>
+    <div class="cycle"> <img src="images/beach2.jpg" width="200" height="200" /> gfdgdf</div>
+    <div class="cycle"> <img src="images/beach3.jpg" width="200" height="200" />fgdf </div>
+    <div class="cycle"> <img src="images/beach3.jpg" width="200" height="200" />fgdf </div>
+    <div class="cycle"> <img src="images/beach3.jpg" width="200" height="200" />fgdf </div>
+</div> 
+</div>
 
-<div id="footer"><gcse:searchresults></gcse:searchresults> </div>
+
+</div>
+
+
+<div style="background-image:url('{{ asset('img/footer.jpg')  }}'); width:1000px; height:300px; float:left">
+</div>
+
+
+<div id="footer">
+<gcse:searchresults></gcse:searchresults> 
+</div>
+
+
 </div>
 {% endblock %}
 {% block javascripts %}  {# javascript dla zegarka #}
-<script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
-{# <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" > </script>#}
+<script type="text/javascript" src="{{ asset('js/jqueryRotate.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/s3Slider.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/cycle_plugin.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/main.js') }}" > </script>
-
-<script type="text/javascript" src="{{ asset('js/rotate.js') }}" > </script>
-{#<script type="text/javascript" src="{{ asset('js/clock.js') }}" > </script>#}
-
 {% endblock %}
 
