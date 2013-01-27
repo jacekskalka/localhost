@@ -42,3 +42,28 @@ $('.zamknij').click(function(){
 
  $('.skomentuj2').hide();
 });
+
+// KOMENTARZ 2
+
+$('.minus2').click(function(){
+var ocena2 = 'minus'; var $this = $(this);
+var id = $(this).prev().text(); 
+        $.ajax({ url: path, type: "POST",  cache: false, async: true, data: { id:id, ocena2:ocena2 },
+                success: function(dane) { 
+				$this.prev().prev().text(dane); 
+
+				}}); 
+
+});
+
+$('.plus2').click(function(){
+
+var ocena2 = 'plus'; var $this = $(this);
+var id = $(this).prev().prev().text();
+        $.ajax({ url:  path , type: "POST",  cache: false, async: true, data: { id:id, ocena2:ocena2 },
+                success: function(dane) { 
+				$this.next().text(dane); 
+			
+				  }  }); 
+
+});

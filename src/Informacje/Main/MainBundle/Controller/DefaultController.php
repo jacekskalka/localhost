@@ -145,12 +145,10 @@ class DefaultController extends Controller
 		 if(isset($_POST['ocena'])){
 		$id = $_POST['id'];              // id komentarza
 	    $ocena = $_POST['ocena'];		 // ocena (string) plus/minus
-		//dodajemy do komentarza ocene oraz ?
+
 		$em = $this->getDoctrine()->getManager();
 		$komentarz = $em->getRepository('InformacjeMainMainBundle:Komentarz')->findOneById($id);
 		
-		//$komentarz_id = $komentarz->getId();
-		//$visitor = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Visitor')->findOneByBrowser($browser);
 		$browser = $_SERVER['HTTP_USER_AGENT'];
 		$query = $em->createQuery(
 		'SELECT v FROM InformacjeMainMainBundle:Visitor v WHERE v.browser = :browser AND v.komentarz = :komentarz'
@@ -176,13 +174,48 @@ class DefaultController extends Controller
 		
 		} else { if ($ocena=='plus'){ $plus = $komentarz->getPlus(); echo "oddałeś już głos";}
 			     if ($ocena=='minus'){ $minus = $komentarz->getMinus(); echo "oddałeś już głos";}
-		}} else { echo "no-ajax";}
-		}
+		}} 
+		
+		// OCENA 2 ( ocena odpowiedzi do komentarza )
+		
+	    if(isset($_POST['ocena2'])){ 
+		$id = $_POST['id'];             
+	    $ocena = $_POST['ocena2'];	
+
+		$em = $this->getDoctrine()->getManager();
+		$komentarz2 = $em->getRepository('InformacjeMainMainBundle:Komentarz2')->findOneById($id);
+		
+		$browser = $_SERVER['HTTP_USER_AGENT'];
+		$query = $em->createQuery(
+		'SELECT v FROM InformacjeMainMainBundle:Visitor2 v WHERE v.browser = :browser AND v.komentarz2 = :komentarz2'
+		)->setParameters(array('browser' => $browser , 'komentarz2' => $komentarz2));
+		$match = $query->getResult();
+		if ( $match == null ){
+	
+			 if ($ocena=='plus'){
+			 $plus = $komentarz2->getPlus(); $plus++;
+			 $komentarz2->setPlus($plus); echo "$plus";
+			 }
+			 if ($ocena=='minus'){
+			 $minus = $komentarz2->getMinus(); $minus++;
+			 $komentarz2->setMinus($minus); echo "$minus";
+			 }
+			
+			$visitor2 = new Visitor2();
+			$browser = $_SERVER['HTTP_USER_AGENT'];
+			$visitor2->setBrowser($browser);
+			$visitor2->setKomentarz2($komentarz2);
+			$em -> persist($visitor2);	
+			$em -> flush();	
+		
+				} else { if ($ocena=='plus'){ $plus = $komentarz2->getPlus(); echo "oddałeś już głos";}
+			     if ($ocena=='minus'){ $minus = $komentarz2->getMinus(); echo "oddałeś już głos";}
+			}} 
+		return array();
+		
+		} // is_ajax ends
 	
 	return array();
-	//}
-	
-	//return array();
 	}
 		
 
