@@ -167,6 +167,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\AdministracjaController::LoginDodajAction',  '_route' => 'informacje_main_main_administracja_logindodaj',);
         }
 
+        // informacje_main_main_administracja_loginusun
+        if ($pathinfo === '/Login/Usun') {
+            return array (  '_controller' => 'Informacje\\Main\\MainBundle\\Controller\\AdministracjaController::LoginUsunAction',  '_route' => 'informacje_main_main_administracja_loginusun',);
+        }
+
         // informacje_main_main_default_index
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

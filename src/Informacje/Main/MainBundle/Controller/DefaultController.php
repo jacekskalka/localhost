@@ -24,6 +24,8 @@ class DefaultController extends Controller
 	$wiadomości = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('w');
 	$sport = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('s');
 	$biznes = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('b');
+	$rozmaitosci = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('r');
+	$rozrywka = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('z');
 	
 	            // GET UNIQUE BROWSER AND PERSIST TO DATABASE 
 	$browser = $_SERVER['HTTP_USER_AGENT'];
@@ -45,7 +47,8 @@ class DefaultController extends Controller
 	$pogoda[4]=$xml->weather[2]->weatherIconUrl;
 	$pogoda[5]='od '.$xml->weather[2]->tempMinC.' do '.$xml->weather[2]->tempMaxC.'°C';
 	
-	return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes, 'pogoda'=>$pogoda);
+	return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes, 'pogoda'=>$pogoda,
+				 'rozmaitosci'=>$rozmaitosci,'rozrywka'=>$rozrywka);
     }
 	
 	/** @Route("/Strona/{slug}") @Template() */
@@ -112,9 +115,9 @@ class DefaultController extends Controller
 		 
 				// KOMENTARZE -LISTING
 	$komentarze =$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz')->findByStrona($slug);
-
+		if( !null == $komentarze ){
 	$komentarze2 =$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz2')->findByParent($komentarze);
-
+		} else $komentarze2 = null;
 
 	return array('wiadomość'=>$wiadomość,'files'=>$files, 'form'=>$form->createView(),
 	             'form2'=>$form2->createView(),'komentarze'=>$komentarze,'komentarze2'=>$komentarze2 );

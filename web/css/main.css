@@ -24,7 +24,7 @@ time, mark, audio, video {
 }
 
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+ header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
@@ -64,7 +64,7 @@ body { -webkit-appearance: none; }
 
 
 			
-#content { position:relative;min-height:1400px; ; padding-top:5px; margin:3px; width:1000px;
+#content { position:relative; min-height: 1050px; padding-top:5px; margin:3px; width:1000px;
 background-image : url('../img/pattern.jpg');
 }
 #wrapper { padding : 5px; margin:10px auto; display:block; width: 1000px; background-color : #E7E7E7;}
@@ -109,13 +109,13 @@ font-size: 40px; font-weight: bold; text-align: center; border :1px solid red; m
 /* SLIDER */
 #s3slider { display:block; float:left; position:relative; margin: 0px 5px 5px 5px ; 
     width: 650px; /* important to be same as image width */
-    height: 500px; /* important to be same as image height */
+    height: 361px; /* important to be same as image height */
     position: relative; /* important */
     overflow: hidden; /* important */
 }
  
 #s3sliderContent {
-    width: 400px; /* important to be same as image width or wider */
+    width: 650px; /* important to be same as image width or wider */
 	position: absolute; /* important */
     top: 0; /* important */
     margin-left: 0; /* important */
@@ -203,7 +203,7 @@ background: #C0C0C0;
 cursor: pointer;
 cursor: hand;
 }
-.carousel_span { background-color: black; color : white; float : left;
+.carousel_span { background-color: rgba(0,0,0,.4); color : white; float : left;
 position : absolute; z-index:15; top: 8px; height: 33px; width:200px; overflow : hidden;
 font-weight:bold;
  -ms-word-break: break-all;
@@ -214,7 +214,7 @@ font-weight:bold;
 /* CYCLE_PLUGIN */
 
 .pics {  
-    height:  400px;  
+    height:  330px;  
     width:   320px;  
     padding: 0;  
     margin:  0;  
@@ -224,12 +224,12 @@ font-weight:bold;
     padding: 10px; float: left;  
     border:  1px solid #ccc;  
     background-color: #eee;  
-    width:  150px; 
-    height: 150px; 
+    width:  200px; 
+    height: 110px; 
     top:  0; 
     left: 0 
 } 
-.cycle { width: 320px; height : 400px; padding : 0px; margin: 0px; background:white; border:1px solid black; }
+.cycle { width: 320px; height : 330px; padding : 0px; margin: 0px; background:white; border:1px solid black; }
 #nav a { border: 1px solid #ccc; background: #fc0; text-decoration: none; margin: 0 5px; padding: 3px 5px;  }
 #nav a.activeSlide { background: #ea0 }
 #nav a:focus { outline: none; }

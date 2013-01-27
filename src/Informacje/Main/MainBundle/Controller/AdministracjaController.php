@@ -78,7 +78,7 @@ class AdministracjaController extends Controller
 	->add('file10', 'file', array ('label'=>'zdjęcie do galerii','required'=>false))
 	->add('description10', 'textarea', array ('label'=>'Opis do zdjęcia', 'required'=>false ))
 	->add('rodzaj', 'choice', array(
-         'choices'   => array('w' => 'Wiadomości', 's' => 'Sport','b'=>'Business'),
+         'choices'   => array('w' => 'Wiadomości', 's' => 'Sport','b'=>'Business','r'=>'Rozmaitości','z'=>'Rozrywka'),
          'required'  => true,
 		 'expanded'=>true,
 		 'multiple'=>false ))
@@ -101,5 +101,19 @@ class AdministracjaController extends Controller
         return array('form'=>$form->createView());
     }
 	
+	/** @Route("/Login/Usun") @Template() */
+    public function LoginUsunAction() {
+	
+	$wiadomości = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('w');
+	$sport = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('s');
+	$biznes = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('b');
+	$rozmaitosci = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('r');
+	$rozrywka = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('z');
+	
+	
+	
+	return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes,
+				 'rozmaitosci'=>$rozmaitosci,'rozrywka'=>$rozrywka);
+	}
 	
 }
