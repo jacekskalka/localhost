@@ -48,20 +48,21 @@ table {
 */
 
 
-
+body { background-color:#DAD9D4 }
 
 h1 { color : #1EBED4; text-align : center; }
 
-#wrapper { width : 1000px; margin:10px auto; background-color : tanned; position:relative; }
+#wrapper { width : 1000px; background-color:white; padding:5px;
+	margin:10px auto; background-color : tanned; position:relative; }
 
 /* GALERIA */
-#galeria  {float: left; width:500px; height : 500px; border-top:1px solid black; margin : 15px;
+#galeria  {float: left; width:500px; height : 400px; border-top:1px solid black; margin : 15px;
 			border-left:1px solid black;
 			box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			-webkit-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			-moz-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 }
-#big { width : 440px; height : 300px; }
+#big { width : 440px; }
 .arrow { width : 20px; }
 
 

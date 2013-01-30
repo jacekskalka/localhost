@@ -7,7 +7,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Informacje\Main\MainBundle\Entity\Login;
 use Informacje\Main\MainBundle\Entity\Strona;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Informacje\Main\MainBundle\Entity\Visitor;
+use Informacje\Main\MainBundle\Entity\Visitor2;
+use Informacje\Main\MainBundle\Entity\Komentarz;
+use Symfony\Component\HttpFoundation\Session\Komentarz2;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -111,7 +114,28 @@ class AdministracjaController extends Controller
 	$rozrywka = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findByRodzaj('z');
 	
 	
+	// USÓWANIE strona->komentarz>visitor->komrntarz2->visitor2 na podstwaie tablicy z id strony
+	// dzięki cascade=remove ( for object that have children)
 	
+	if ($this->getRequest()->getMethod() === 'POST') {    
+		if (isset($_POST['id'])){
+		$ids = $_POST['id'];
+			
+		$em = $this->getDoctrine()->getEntityManager();
+			 foreach ($ids as $id ){
+			$em = $this->getDoctrine()->getEntityManager(); 
+		     $strona = $em->getRepository('InformacjeMainMainBundle:Strona')->findOneById($id);
+				$strona -> removeUpload1();$strona -> removeUpload3();$strona -> removeUpload3();
+				$strona -> removeUpload4();$strona -> removeUpload5();$strona -> removeUpload6();
+				$strona -> removeUpload7();$strona -> removeUpload8();$strona -> removeUpload9();
+				$strona -> removeUpload10();
+			 $em->remove($strona);
+			 $em->flush();
+			}
+		return $this -> redirect($this->generateUrl('informacje_main_main_administracja_loginusun'),301);
+		}
+	}
+		
 	return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes,
 				 'rozmaitosci'=>$rozmaitosci,'rozrywka'=>$rozrywka);
 	}

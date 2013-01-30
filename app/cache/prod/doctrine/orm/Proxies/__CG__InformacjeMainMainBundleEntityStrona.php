@@ -681,10 +681,28 @@ class Strona extends \Informacje\Main\MainBundle\Entity\Strona implements \Doctr
         return parent::getKomentarze();
     }
 
+    public function addPopularity(\Informacje\Main\MainBundle\Entity\Popularity $popularity)
+    {
+        $this->__load();
+        return parent::addPopularity($popularity);
+    }
+
+    public function removePopularity(\Informacje\Main\MainBundle\Entity\Popularity $popularity)
+    {
+        $this->__load();
+        return parent::removePopularity($popularity);
+    }
+
+    public function getPopularity()
+    {
+        $this->__load();
+        return parent::getPopularity();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'header1', 'header2', 'header3', 'content', 'description1', 'description2', 'description3', 'description4', 'description5', 'description6', 'description7', 'description8', 'description9', 'description10', 'rodzaj', 'czas', 'path1', 'path2', 'path3', 'path4', 'path5', 'path6', 'path7', 'path8', 'path9', 'path10', 'komentarze');
+        return array('__isInitialized__', 'id', 'header1', 'header2', 'header3', 'content', 'description1', 'description2', 'description3', 'description4', 'description5', 'description6', 'description7', 'description8', 'description9', 'description10', 'rodzaj', 'czas', 'path1', 'path2', 'path3', 'path4', 'path5', 'path6', 'path7', 'path8', 'path9', 'path10', 'popularity', 'komentarze');
     }
 
     public function __clone()

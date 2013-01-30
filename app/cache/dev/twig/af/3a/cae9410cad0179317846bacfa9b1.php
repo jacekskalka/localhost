@@ -382,13 +382,35 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
         // line 144
         echo "<div id=\"cycle_plugin\" style=\"float:left; margin-top:3px; margin-left:3px; background: black;\" >
 <h2>Najpopularniejsze </h2></br>
-<div id=\"s3\" class=\"pics\" style=\"position: relative; float:left\"> 
-    <div class=\"cycle\"> <img src=\"images/beach1.jpg\" width=\"200\" height=\"200\" />gdfgdf </div>
-    <div class=\"cycle\"> <img src=\"images/beach2.jpg\" width=\"200\" height=\"200\" /> gfdgdf</div>
-    <div class=\"cycle\"> <img src=\"images/beach3.jpg\" width=\"200\" height=\"200\" />fgdf </div>
-    <div class=\"cycle\"> <img src=\"images/beach3.jpg\" width=\"200\" height=\"200\" />fgdf </div>
-    <div class=\"cycle\"> <img src=\"images/beach3.jpg\" width=\"200\" height=\"200\" />fgdf </div>
-</div> 
+<div id=\"s3\" class=\"pics\" style=\"position: relative; float:left; color:white; background:black;\"> 
+";
+        // line 147
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["popularne"]) ? $context["popularne"] : $this->getContext($context, "popularne")));
+        foreach ($context['_seq'] as $context["_key"] => $context["popularny"]) {
+            // line 148
+            echo "    <div class=\"cycle\" style=\"background:black\"> <img src=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/documents"), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["popularny"]) ? $context["popularny"] : $this->getContext($context, "popularny")), "path1"), "html", null, true);
+            echo "\" width=\"200\" height=\"110\" />
+\t<div style=\" padding:5px; background:black\">";
+            // line 149
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["popularny"]) ? $context["popularny"] : $this->getContext($context, "popularny")), "header1"), "html", null, true);
+            echo " </div>
+\t<div style=\"clear:both; font-weight:bold; padding:5px;background:black\">";
+            // line 150
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["popularny"]) ? $context["popularny"] : $this->getContext($context, "popularny")), "header2"), "html", null, true);
+            echo "</div> 
+\t
+\t</div>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['popularny'], $context['_parent'], $context['loop']);
+        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        // line 154
+        echo "</div> 
 </div>
 
 
@@ -396,7 +418,7 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 
 
 <div id=\"footer\" style=\"background-image:url('";
-        // line 159
+        // line 161
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/footer.jpg"), "html", null, true);
         echo "'); 
 width:1000px; height:300px; clear:both;\"> &nbsp;
@@ -412,24 +434,24 @@ width:1000px; height:300px; clear:both;\"> &nbsp;
 ";
     }
 
-    // line 171
+    // line 173
     public function block_javascripts($context, array $blocks = array())
     {
         echo "  ";
-        // line 172
+        // line 174
         echo "<script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jqueryRotate.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 173
+        // line 175
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/s3Slider.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 174
+        // line 176
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/cycle_plugin.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 175
+        // line 177
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/main.js"), "html", null, true);
         echo "\" > </script>
 ";
@@ -447,6 +469,6 @@ width:1000px; height:300px; clear:both;\"> &nbsp;
 
     public function getDebugInfo()
     {
-        return array (  433 => 175,  429 => 174,  425 => 173,  420 => 172,  416 => 171,  400 => 159,  383 => 144,  375 => 137,  366 => 134,  360 => 133,  356 => 132,  352 => 130,  348 => 129,  341 => 124,  330 => 114,  326 => 111,  311 => 108,  304 => 106,  291 => 105,  288 => 104,  284 => 101,  269 => 98,  262 => 96,  249 => 95,  246 => 94,  238 => 88,  234 => 86,  226 => 84,  220 => 83,  215 => 82,  211 => 81,  205 => 78,  200 => 75,  196 => 72,  181 => 69,  174 => 67,  161 => 66,  158 => 65,  148 => 57,  144 => 56,  140 => 55,  134 => 52,  130 => 51,  126 => 50,  117 => 43,  112 => 39,  98 => 26,  93 => 24,  88 => 22,  84 => 21,  80 => 20,  76 => 19,  73 => 18,  67 => 13,  64 => 12,  58 => 9,  55 => 8,  52 => 7,  46 => 5,  41 => 4,  38 => 3,  32 => 2,);
+        return array (  455 => 177,  451 => 176,  447 => 175,  442 => 174,  438 => 173,  422 => 161,  413 => 154,  403 => 150,  399 => 149,  392 => 148,  388 => 147,  383 => 144,  375 => 137,  366 => 134,  360 => 133,  356 => 132,  352 => 130,  348 => 129,  341 => 124,  330 => 114,  326 => 111,  311 => 108,  304 => 106,  291 => 105,  288 => 104,  284 => 101,  269 => 98,  262 => 96,  249 => 95,  246 => 94,  238 => 88,  234 => 86,  226 => 84,  220 => 83,  215 => 82,  211 => 81,  205 => 78,  200 => 75,  196 => 72,  181 => 69,  174 => 67,  161 => 66,  158 => 65,  148 => 57,  144 => 56,  140 => 55,  134 => 52,  130 => 51,  126 => 50,  117 => 43,  112 => 39,  98 => 26,  93 => 24,  88 => 22,  84 => 21,  80 => 20,  76 => 19,  73 => 18,  67 => 13,  64 => 12,  58 => 9,  55 => 8,  52 => 7,  46 => 5,  41 => 4,  38 => 3,  32 => 2,);
     }
 }

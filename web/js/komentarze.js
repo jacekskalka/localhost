@@ -1,29 +1,29 @@
-//var path = document.URL + 'ajax'; 
-//var path = path.replace('#','/');
 
-//var path = "{{ path('informacje_main_main_default_ajax') }}";
+//var path2 = "http://localhost/INFORMACJE/web/app_dev.php/ajax";
 
-var path = "http://localhost/INFORMACJE/web/app_dev.php/ajax"
+var path2 = $('#link2').attr("href"); 
 
-$('.minus').click(function(){
+
+$('.minus').click(function(){ $(this).css('cursor', 'wait');
+
 var ocena = 'minus'; var $this = $(this);
 var id = $(this).prev().text();
-        $.ajax({ url: path, type: "POST",  cache: false, async: true, data: { id:id, ocena:ocena },
+        $.ajax({ url: path2, type: "POST",  cache: false, async: true, data: { id:id, ocena:ocena },
                 success: function(dane) { 
 				$this.prev().prev().text(dane); 
-
+				$this.css('cursor', 'default');
 				}}); 
 //alert(path);
 });
 
-$('.plus').click(function(){
+$('.plus').click(function(){ $(this).css('cursor', 'wait');
 
 var ocena = 'plus'; var $this = $(this);
 var id = $(this).prev().prev().text();
-        $.ajax({ url:  path , type: "POST",  cache: false, async: true, data: { id:id, ocena:ocena },
+        $.ajax({ url:  path2 , type: "POST",  cache: false, async: true, data: { id:id, ocena:ocena },
                 success: function(dane) { 
 				$this.next().text(dane); 
-			
+				$this.css('cursor', 'default');
 				  }  }); 
 
 });
@@ -45,25 +45,25 @@ $('.zamknij').click(function(){
 
 // KOMENTARZ 2
 
-$('.minus2').click(function(){
+$('.minus2').click(function(){ $(this).css('cursor', 'wait');
 var ocena2 = 'minus'; var $this = $(this);
 var id = $(this).prev().text(); 
-        $.ajax({ url: path, type: "POST",  cache: false, async: true, data: { id:id, ocena2:ocena2 },
+        $.ajax({ url: path2, type: "POST",  cache: false, async: true, data: { id:id, ocena2:ocena2 },
                 success: function(dane) { 
 				$this.prev().prev().text(dane); 
-
+				$this.css('cursor', 'default');
 				}}); 
 
 });
 
-$('.plus2').click(function(){
+$('.plus2').click(function(){ $(this).css('cursor', 'wait');
 
 var ocena2 = 'plus'; var $this = $(this);
 var id = $(this).prev().prev().text();
-        $.ajax({ url:  path , type: "POST",  cache: false, async: true, data: { id:id, ocena2:ocena2 },
+        $.ajax({ url:  path2 , type: "POST",  cache: false, async: true, data: { id:id, ocena2:ocena2 },
                 success: function(dane) { 
 				$this.next().text(dane); 
-			
+				$this.css('cursor', 'default');
 				  }  }); 
 
 });

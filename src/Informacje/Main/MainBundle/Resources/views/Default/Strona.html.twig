@@ -4,6 +4,24 @@
 {% block stylesheets %}
 	<link href="{{ asset('css/strona.css') }}" type="text/css" rel="stylesheet" /> 
 {% endblock %}
+{% block scripts %}
+{# GOOGLE CHARTS API - PIE #}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+            google.load('visualization', '1', {'packages':['columnchart','piechart']});   
+            google.setOnLoadCallback (createChart);   
+            function createChart() {   
+                var dataTable = new google.visualization.DataTable();  
+                dataTable.addColumn('string','Straż miejscka za czy przeciw ?');  
+                dataTable.addColumn('number', 'Earnings');  
+                //define rows of data  
+                dataTable.addRows([['za',{{ wyniki.plus }}], ['przeciw',{{ wyniki.minus }} ]]);   
+                var secondChart = new google.visualization.PieChart (document.getElementById('Chart2'));  
+                var options = {width: 300, height: 140, is3D: true, title: 'Wyniki'};  
+                secondChart.draw(dataTable, options);  
+            }
+    </script>
+{% endblock %}
 {% block body %}
 <div id="wrapper">
 <h1> {{ wiadomość.header2 }} </h1>
@@ -38,16 +56,37 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 <td>
 <td><a id="next_big" href="#"><img class="arrow" src="{{ asset('img/right_arrow.png') }}"/></a> <td>
 </tr></table>
+
+<span class="description"> {{ wiadomość.description1 }} </span> 
 </div>
 
 {# CONTENT #}
 <div id="header3">
 <h4> {{ wiadomość.header3 }} </h4>
 </div>
-<div id="content" > 
-<p> {{ wiadomość.content }} </p>
-</div>
 
+<div style="clear:both"> &nbsp; </div>
+
+<div id="content" > 
+<p> {{ wiadomość.content |nl2br }} </p>
+<div style="clear:both"> &nbsp; </div>
+</div>
+{# SONDA #}
+<hr/>
+<div id="sonda1" >
+
+<div id="pytanie" style="width: 150px; float:left ">
+<h3> Czy jesteś za likwidacją straży miejskiej ? </h3>
+<a id="link" style="display:none" href="{{ path('informacje_main_main_ajax_sonda') }}" > link </a>
+<p id="tak1" style="background-color:green; color : white; text-align:center"> TAK </p> 
+<p id="nie1" style="background-color:red;color : white; text-align:center"> NIE </p> 
+</div>
+ 
+ <div id="Chart2" style="position:relative: width: 400px; float:left;"></div>  
+<div style="clear:both"> &nbsp; </div>
+
+<hr/>
+</div>
 {# KOMENTARZE - DODAJ #}
 <form action="{{ path('informacje_main_main_default_strona', { 'slug': wiadomość.id  }) }}" method="post" {{ form_enctype(form) }}>
 {{ form_widget(form.komentarz) }} {{ form_errors(form.komentarz) }} </br>  
@@ -70,7 +109,7 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 <input type="submit" />
 </form></div>
 
-
+<a id="link2" href="{{ path('informacje_main_main_default_ajax') }}" style="display:none" >link2</a>
 
 {# KOMENTARZE - LISTING #}
 <hr/>
@@ -99,11 +138,11 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 		{% endif %}
 	{% endfor %}	
 {% endfor %}
-
 </div>
 {% endblock %}
 {% block javascripts %}
 <script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/galeria.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/komentarze.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('js/sonda.js') }}" > </script>
 {% endblock %}

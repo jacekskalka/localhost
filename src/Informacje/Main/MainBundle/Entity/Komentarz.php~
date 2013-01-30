@@ -63,9 +63,9 @@ class Komentarz
 	public $strona;
 	
 	
-	/** @ORM\OneToMany(targetEntity="Visitor", mappedBy="komentarz" ) */
+	/** @ORM\OneToMany(targetEntity="Visitor", mappedBy="komentarz", cascade="remove" ) */
 	public $visitor;
-	/** @ORM\OneToMany(targetEntity="Komentarz2", mappedBy="parent" ) */
+	/** @ORM\OneToMany(targetEntity="Komentarz2", mappedBy="parent", cascade="remove" ) */
 	public $children;
 	public function __construct()
     {

@@ -11,6 +11,7 @@ use Informacje\Main\MainBundle\Entity\Komentarz;
 use Informacje\Main\MainBundle\Entity\Komentarz2;
 use Informacje\Main\MainBundle\Entity\Visitor;
 use Informacje\Main\MainBundle\Entity\Visitor2;
+use Informacje\Main\MainBundle\Entity\Popularity;
 use Symfony\Component\Form\FormFactory;
 use Informacje\Main\MainBundle\Form\KomentarzType;
 use Informacje\Main\MainBundle\Form\Komentarz2Type;
@@ -47,12 +48,43 @@ class DefaultController extends Controller
 	$pogoda[4]=$xml->weather[2]->weatherIconUrl;
 	$pogoda[5]='od '.$xml->weather[2]->tempMinC.' do '.$xml->weather[2]->tempMaxC.'°C';
 	
+	
+	/* Najpopularniejsze - tablica z id stron */
+	$em = $this-> getDoctrine()->getManager();
+	$query = "SELECT strona_id_id strona, COUNT(strona_id_id) count FROM popularity GROUP BY strona_id_id ORDER BY count DESC";
+	$najpopularniejsze = array();
+	$result = $em->getConnection()->query($query);
+	while ($row = $result->fetch()) {
+	    $najpopularniejsze[] = $row['strona'];
+	 }
+	// var_dump($najpopularniejsze);
+	$popularne = array();
+	if( isset($najpopularniejsze[0]) && isset($najpopularniejsze[1]) && isset($najpopularniejsze[2]) && isset($najpopularniejsze[3]) && isset($najpopularniejsze[4])) { 
+	$popularne[0] = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($najpopularniejsze[0]); 
+	$popularne[1] = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($najpopularniejsze[1]); 
+	$popularne[2] = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($najpopularniejsze[2]); 
+	$popularne[3] = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($najpopularniejsze[3]); 
+	$popularne[4] = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($najpopularniejsze[4]); 
+	} 
 	return array('wiadomości'=>$wiadomości,'sport'=>$sport,'biznes'=>$biznes, 'pogoda'=>$pogoda,
-				 'rozmaitosci'=>$rozmaitosci,'rozrywka'=>$rozrywka);
+				 'rozmaitosci'=>$rozmaitosci,'rozrywka'=>$rozrywka, 'popularne'=>$popularne);
     }
 	
 	/** @Route("/Strona/{slug}") @Template() */
     public function stronaAction($slug) {
+	            // POPULARITY
+	$browser = $_SERVER['HTTP_USER_AGENT'];
+	$find_browser = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Popularity')->findOneBy(array('browser'=>$browser,'strona_id'=>$slug));
+	$find_strona = $this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($slug);
+
+	if($find_browser==null) {
+	$em = $this->getDoctrine()->getEntityManager();
+	$popularity = new Popularity();
+	$popularity->setBrowser($browser);
+	$popularity->setStronaId($find_strona);
+	$em ->persist($popularity);
+	$em ->flush();
+	}
 				// WIADOMOŚCI
 	 $wiadomość=$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Strona')->findOneById($slug);	
 	$files=array();
@@ -83,8 +115,11 @@ class DefaultController extends Controller
 		 ->add('hidden', 'hidden', array( 'data' => 'id',))
 		 ->getForm();	 
 	$request = $this->getRequest();	 
-	if ($this->getRequest()->getMethod() === 'POST') {
-	     if ($request->request->has('form1name')) {
+
+	if ($this->getRequest()->getMethod() === 'POST') {	
+	// blokada na 2 komentarze
+	if ( $find_browser->getCommentNumber() < 3 ){
+		if ($request->request->has('form1name')) {
 			$form->bindRequest($this->getRequest());
 			if ($form->isValid()) {			 
 				$em = $this->getDoctrine()->getEntityManager(); 
@@ -93,6 +128,8 @@ class DefaultController extends Controller
 				$komentarz->setPodpis($form["podpis"]->getData());
 				$komentarz->setStrona($strona);
 				$em -> persist($komentarz);
+				$comment_number = $find_browser->getCommentNumber() + 1;
+				$find_browser->setCommentNumber($comment_number);
 				$em -> flush();	
 				return $this -> redirect($this->generateUrl('informacje_main_main_default_strona', array('slug'=>$slug)),301);
 			}}	
@@ -105,21 +142,35 @@ class DefaultController extends Controller
 				
 				$komentarz2->setKomentarz($form2["komentarz"]->getData());
 				$komentarz2->setPodpis($form2["podpis"]->getData());
-				//var_dump($form2);
 				$komentarz2->setParent($komentarz);
 				$em -> persist($komentarz2);
+				$comment_number = $find_browser->getCommentNumber() + 1;
+				$find_browser->setCommentNumber($comment_number);
 				$em -> flush();
 				return $this -> redirect($this->generateUrl('informacje_main_main_default_strona', array('slug'=>$slug)),301);
 		    }}
+	} else { 
+	echo "<hr/><h5 style='color:red; text-align:center' >Wysłałeś już 2 komentarze. Limit został wykorzystany</h5><hr/>" ;	}
 	}
-		 
+	
+				// SONDAŻ - WYNIKI
+	$em = $this-> getDoctrine()->getManager();
+	$query = "SELECT SUM(plus) plus ,SUM(minus) minus FROM sonda1";
+	$wyniki = array();
+	$result = $em->getConnection()->query($query);
+	while ($row = $result->fetch()) {
+	    $wyniki['plus'] = $row['plus'];
+	    $wyniki['minus'] = $row['minus'];
+	 }
+	 
+	
 				// KOMENTARZE -LISTING
 	$komentarze =$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz')->findByStrona($slug);
 		if( !null == $komentarze ){
 	$komentarze2 =$this->getDoctrine()->getRepository('InformacjeMainMainBundle:Komentarz2')->findByParent($komentarze);
 		} else $komentarze2 = null;
 
-	return array('wiadomość'=>$wiadomość,'files'=>$files, 'form'=>$form->createView(),
+	return array('wiadomość'=>$wiadomość,'files'=>$files, 'form'=>$form->createView(), 'wyniki'=>$wyniki,
 	             'form2'=>$form2->createView(),'komentarze'=>$komentarze,'komentarze2'=>$komentarze2 );
 	}
 	
@@ -220,13 +271,20 @@ class DefaultController extends Controller
 		
 
 	
-	/** @Route("/komentarz") */
+	/** @Route("/komentarz") @Template() */
 	public function komentarzAction(){
 	
+	/* Najpopularniejsze - tablica z id stron */
+	$em = $this-> getDoctrine()->getManager();
+	$query = "SELECT strona_id_id strona, COUNT(*) count FROM popularity GROUP BY strona_id_id ORDER BY count DESC";
+	$najpopularniejsze = array();
+	$result = $em->getConnection()->query($query);
+	  while ($row = $result->fetch()) {
+	    $najpopularniejsze[] = $row['strona'];
+	  }
+
 	
-	
-	
-	
+	return array();
 	}
 	
 }	

@@ -132,12 +132,16 @@ class Strona
 	
 	private $czas;
 	
-	/** @ORM\OneToMany(targetEntity="Komentarz", mappedBy="strona" ) */
+	/** @ORM\OneToMany(targetEntity="Popularity", mappedBy="strona_id", cascade="remove" ) */
+	public $popularity;
+	
+	/** @ORM\OneToMany(targetEntity="Komentarz", mappedBy="strona", cascade="remove" ) */
 	public $komentarze;
 	public function __construct()
     {
         $this->komentarze = new ArrayCollection();
-    }
+		$this->popularity = new ArrayCollection();
+	}
 	
 	
 	
@@ -546,7 +550,7 @@ public function getCzas()
 
     /** @ORM\PostRemove() */
     public function removeUpload1()
-    { if ($file1 = $this->getAbsolutePath()) {
+    { if ($file1 = $this->getAbsolutePath1()) {
 			if (file_exists($file1) && is_writable($file1)){   
 			unlink($file1);} }}
 	
@@ -1036,5 +1040,38 @@ public function getCzas()
     public function getKomentarze()
     {
         return $this->komentarze;
+    }
+
+    /**
+     * Add popularity
+     *
+     * @param \Informacje\Main\MainBundle\Entity\Popularity $popularity
+     * @return Strona
+     */
+    public function addPopularity(\Informacje\Main\MainBundle\Entity\Popularity $popularity)
+    {
+        $this->popularity[] = $popularity;
+    
+        return $this;
+    }
+
+    /**
+     * Remove popularity
+     *
+     * @param \Informacje\Main\MainBundle\Entity\Popularity $popularity
+     */
+    public function removePopularity(\Informacje\Main\MainBundle\Entity\Popularity $popularity)
+    {
+        $this->popularity->removeElement($popularity);
+    }
+
+    /**
+     * Get popularity
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPopularity()
+    {
+        return $this->popularity;
     }
 }

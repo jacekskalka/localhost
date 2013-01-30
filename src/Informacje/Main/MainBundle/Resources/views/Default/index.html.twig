@@ -143,12 +143,14 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 {# CYCLE PLUGIN  #}
 <div id="cycle_plugin" style="float:left; margin-top:3px; margin-left:3px; background: black;" >
 <h2>Najpopularniejsze </h2></br>
-<div id="s3" class="pics" style="position: relative; float:left"> 
-    <div class="cycle"> <img src="images/beach1.jpg" width="200" height="200" />gdfgdf </div>
-    <div class="cycle"> <img src="images/beach2.jpg" width="200" height="200" /> gfdgdf</div>
-    <div class="cycle"> <img src="images/beach3.jpg" width="200" height="200" />fgdf </div>
-    <div class="cycle"> <img src="images/beach3.jpg" width="200" height="200" />fgdf </div>
-    <div class="cycle"> <img src="images/beach3.jpg" width="200" height="200" />fgdf </div>
+<div id="s3" class="pics" style="position: relative; float:left; color:white; background:black;"> 
+{% for popularny in popularne %}
+    <div class="cycle" style="background:black"> <img src="{{ asset('uploads/documents') }}/{{popularny.path1 }}" width="200" height="110" />
+	<div style=" padding:5px; background:black">{{ popularny.header1 }} </div>
+	<div style="clear:both; font-weight:bold; padding:5px;background:black">{{ popularny.header2 }}</div> 
+	
+	</div>
+{% endfor %}
 </div> 
 </div>
 
