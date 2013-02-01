@@ -217,7 +217,7 @@ font-weight:bold;
 
 /* CYCLE_PLUGIN */
 
-.pics {  
+.pics {  padding: 2px;
     height:  330px;  
     width:   320px;  
     padding: 0;  
@@ -233,7 +233,7 @@ font-weight:bold;
     top:  0; 
     left: 0 
 } 
-.cycle { width: 320px; height : 330px; padding : 0px; margin: 0px; background:white; border:1px solid black; }
+.cycle { width: 320px; height : 330px; padding : 0px; margin: 0px; background:white;  }
 #nav a { border: 1px solid #ccc; background: #fc0; text-decoration: none; margin: 0 5px; padding: 3px 5px;  }
 #nav a.activeSlide { background: #ea0 }
 #nav a:focus { outline: none; }

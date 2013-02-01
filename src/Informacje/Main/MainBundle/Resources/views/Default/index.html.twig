@@ -3,10 +3,13 @@
 {% block stylesheets %}
 	<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" /> 
 	<link href="{{ asset('css/clock.css') }}" type="text/css" rel="stylesheet" /> 
+	<link href="{{ asset('sorgolla/skins/tango/skin.css') }}" type="text/css" rel="stylesheet" /> 
 {% endblock %}
 {% block scripts %}
 
 <script type="text/javascript" src="{{ asset('js/jquery.js') }}" > </script>
+{# SORGOLLA CAROUSEL CONFIGURATION #}
+
 {% endblock %}
 
 {% block body %}
@@ -194,6 +197,29 @@ width:1000px; height:300px; clear:both;">
 <a href="http://www.tripadvisor.com/" style="float:left"> <div id="advisor"/></div></a>
 </td><tr/></table>
 
+<div class="spacer" style="clear: both;"></div> {# layout hack #}
+{# SORGOLLA CAROUSEL #}
+
+<div class="jcarousel-skin-tango">
+  <div class="jcarousel-container" style="width:920px; background:none; border:none;">
+    <div class="jcarousel-clip" style="width:890px;; height:160px">
+
+<ul id="mycarousel" class="jcarousel-skin-tango" style="height: 300px;">
+<li class="jcarousel-item-1" style="width:220px;height:150px"><iframe width="220" height="150" src="http://www.youtube.com/embed/tw76EhR-qoo" frameborder="0" allowfullscreen></iframe></li>
+<li class="jcarousel-item-2" style="width:220px;height:150px"><iframe width="220" height="150" src="http://www.youtube.com/embed/6UGvwmT0P9k" frameborder="0" allowfullscreen></iframe></li>
+<li class="jcarousel-item-3" style="width:220px;height:150px"><iframe width="220" height="150" src="http://www.youtube.com/embed/S29heEskC18" frameborder="0" allowfullscreen></iframe></li>
+<li class="jcarousel-item-4" style="width:220px;height:150px"><iframe width="220" height="150" src="http://www.youtube.com/embed/tw76EhR-qoo" frameborder="0" allowfullscreen></iframe></li>
+<li class="jcarousel-item-5" style="width:220px;height:150px"><iframe width="220" height="150" src="http://www.youtube.com/embed/tw76EhR-qoo" frameborder="0" allowfullscreen></iframe></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
 </div>
 
 
@@ -208,6 +234,8 @@ width:1000px; height:300px; clear:both;">
 <script type="text/javascript" src="{{ asset('js/jqueryRotate.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/s3Slider.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/cycle_plugin.js') }}" > </script>
+<script type="text/javascript" src="{{ asset('sorgolla/lib/jquery.jcarousel.min.js') }}" > </script>
 <script type="text/javascript" src="{{ asset('js/main.js') }}" > </script>
+
 {% endblock %}
 
