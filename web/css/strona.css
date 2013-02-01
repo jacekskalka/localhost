@@ -71,9 +71,9 @@ h1 { color : #1EBED4; text-align : center; }
 
 
 /* KOMENTARZE */
-
-form textarea { width : 600px; height : 100px; resize: none; }
-.komentarz { background-color : #cce1fc;margin:5px; line-height:1.5em;  height:7.5em; width : 600px; overflow : hidden; 
+#form1name_podpis,#form2name_podpis { background-color:#ebefe3;}
+form textarea { width : 600px; height : 100px; resize: none; background-color:#ebefe3 }
+.komentarz { background-color : #cce1fc;margin:5px; line-height:1.5em; height:auto; max-height:7.5em; width : 600px; overflow : hidden; 
 			box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			-webkit-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
 			-moz-box-shadow : 2px 2px 4px rgba(0,0,0,.5 );
@@ -88,7 +88,7 @@ form textarea { width : 600px; height : 100px; resize: none; }
 
 .komentarz hr, .komentarz2 hr, { margin : 0px; }
 
-
+.odpowiedz, .rozwin { padding : 1px 5px; }
 
 
 

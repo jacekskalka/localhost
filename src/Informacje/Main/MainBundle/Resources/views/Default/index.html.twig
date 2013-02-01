@@ -72,7 +72,7 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 </table></div>
 
 {# CAROUSEL #}
-<div id='carousel' style="float:left ; margin-bottom : 10px;">
+<div id='carousel' style="float:left ; margin-bottom : 5px;">
 <h2>Rozmaitości </h2>
 <div id='carousel_container'>
   <div id='left_scroll'><img src="{{ asset('img/left.png') }}" /></div>
@@ -89,7 +89,11 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 </div>
 </div>
 
-
+{# REKLAMA #}
+<div id="reklama"> 
+    <div >  REKLAMA </div>
+    <div style="background-color: Maroon" >  TANIO </div>
+ </div>
 {# SPORT  #}
 <div class="wiadomości" ><h2>Sport </h2>
 <table class="tabela">{% for sporty in sport | reverse if loop.index < 7 %}<tr>
@@ -109,16 +113,7 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 </a></td></tr>
 {% endfor %}
 </table></div>
-
-{# SPORT BIZNES #}
-<div id="reklama"> 
-    <div >  REKLAMA </div>
-    <div style="background-color: Maroon" >  TANIO </div>
- </div>
-
  <div class="spacer" style="clear: both;"></div> 
-
-
 
 {# SLIDER #}
 <div id="rozrywka" style="float:left; margin-top : 3px;">
@@ -157,9 +152,48 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 
 </div>
 
-
+{# FOOTER #}
 <div id="footer" style="background-image:url('{{ asset('img/footer.jpg')  }}'); 
-width:1000px; height:300px; clear:both;"> &nbsp;
+width:1000px; height:300px; clear:both;">
+<table style="float:left" ><th> Szukaj cen </th> <tr> <td> 
+<a href="http://www.ceneo.pl" style="float:left"> <div id="ceneo"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Aukcje </th> <tr> <td> 
+<a href="http://www.allegro.pl" style="float:left"> <div id="allegro"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Program </th> <tr> <td> 
+<a href="www.telemagazyn.pl" style="float:left"> <div id="zapper"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Randka</th> <tr> <td> 
+<a href="http://www.sympatia.pl" style="float:left"> <div id="sympatia"/></div></a>
+<a href="http://www.badoo.com" style="float:left"> <div id="badoo"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Gry</th> <tr> <td> 
+<a href="http://www.kurnik.pl" style="float:left"> <div id="kurnik"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Torrenty</th> <tr> <td> 
+<a href="http://www.thepiratebay.se" style="float:left"> <div id="pirate"/></div></a>
+<a href="http://www.kat.ph" style="float:left"> <div id="kat"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Video</th> <tr> <td> 
+<a href="#" style="float:left"> <div id="liveleak"/></div></a>
+<a href="http://www.youtube.com/" style="float:left"> <div id="youtube"/></div></a>
+</td><tr/></table>
+
+<table style="float:left" ><th> Pogoda</th> <tr> <td> 
+<a href="http://www.pogodynka.pl" style="float:left"> <div id="imgw"/></div></a>
+</td><tr/></table>
+
+<table style="float:left;" ><th style="width:115px">  Podróże</th> <tr> <td> 
+<a href="http://www.tripadvisor.com/" style="float:left"> <div id="advisor"/></div></a>
+</td><tr/></table>
+
 </div>
 
 

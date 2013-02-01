@@ -67,3 +67,28 @@ var id = $(this).prev().prev().text();
 				  }  }); 
 
 });
+
+
+// ROZWIJANIE KOMENTARZA
+
+
+// $('.rozwin').click(function(){
+ // alert ('fv');
+// $(this).parent().prev().css('max-height','none').css('height','auto');
+// $(this).text('Zwiń');
+	// $(this).click(function(){
+	// $(this).parent().prev().css('max-height','7.5em').css('height','auto');
+	// }
+	// )
+
+// })
+
+
+$('.rozwin').toggle( function(){
+$(this).parent().prev().css('max-height','none').css('height','auto');
+$(this).text('Zwiń');},function(){
+	$(this).parent().prev().css('max-height','7.5em').css('height','auto');
+	$(this).text('Rozwiń');
+	});
+	
+

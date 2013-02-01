@@ -197,7 +197,7 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 
 ";
         // line 75
-        echo "<div id='carousel' style=\"float:left ; margin-bottom : 10px;\">
+        echo "<div id='carousel' style=\"float:left ; margin-bottom : 5px;\">
 <h2>Rozmaitości </h2>
 <div id='carousel_container'>
   <div id='left_scroll'><img src=\"";
@@ -240,12 +240,17 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 </div>
 </div>
 
-
 ";
-        // line 94
+        // line 93
+        echo "<div id=\"reklama\"> 
+    <div >  REKLAMA </div>
+    <div style=\"background-color: Maroon\" >  TANIO </div>
+ </div>
+";
+        // line 98
         echo "<div class=\"wiadomości\" ><h2>Sport </h2>
 <table class=\"tabela\">";
-        // line 95
+        // line 99
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable(twig_reverse_filter($this->env, (isset($context["sport"]) ? $context["sport"] : $this->getContext($context, "sport"))));
         $context['loop'] = array(
@@ -258,14 +263,14 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
             if (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index") < 7)) {
                 echo "<tr>
 <td style=\"width:80px; height:50px;\"><div id=\"mini\" style=\"width:70px;height:45px; background-image: url('";
-                // line 96
+                // line 100
                 echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/documents"), "html", null, true);
                 echo "/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sporty"]) ? $context["sporty"] : $this->getContext($context, "sporty")), "path1"), "html", null, true);
                 echo "') ; 
 background-size:contain; background-repeat: no-repeat; background-position : center  \" > &nbsp;</div> </td>
 <td style=\"width:200px; height:50px;\"><a href=\"";
-                // line 98
+                // line 102
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("informacje_main_main_default_strona", array("slug" => $this->getAttribute((isset($context["sporty"]) ? $context["sporty"] : $this->getContext($context, "sporty")), "id"))), "html", null, true);
                 echo "\">";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["sporty"]) ? $context["sporty"] : $this->getContext($context, "sporty")), "header1"), "html", null, true);
@@ -280,14 +285,14 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sporty'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 101
+        // line 105
         echo "</table></div>
 
 ";
-        // line 104
+        // line 108
         echo "<div class=\"wiadomości\" ><h2>Biznes </h2>
 <table class=\"tabela\">";
-        // line 105
+        // line 109
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable(twig_reverse_filter($this->env, (isset($context["biznes"]) ? $context["biznes"] : $this->getContext($context, "biznes"))));
         $context['loop'] = array(
@@ -300,14 +305,14 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
             if (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : $this->getContext($context, "loop")), "index") < 7)) {
                 echo "<tr>
 <td style=\"width:80px; height:50px;\"><div id=\"mini\" style=\"width:70px;height:45px; background-image: url('";
-                // line 106
+                // line 110
                 echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/documents"), "html", null, true);
                 echo "/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["biznesy"]) ? $context["biznesy"] : $this->getContext($context, "biznesy")), "path1"), "html", null, true);
                 echo "') ; 
 background-size:contain; background-repeat: no-repeat; background-position : center  \" > &nbsp;</div> </td>
 <td style=\"width:200px; height:50px;\"><a href=\"";
-                // line 108
+                // line 112
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("informacje_main_main_default_strona", array("slug" => $this->getAttribute((isset($context["biznesy"]) ? $context["biznesy"] : $this->getContext($context, "biznesy")), "id"))), "html", null, true);
                 echo "\">";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["biznesy"]) ? $context["biznesy"] : $this->getContext($context, "biznesy")), "header1"), "html", null, true);
@@ -322,47 +327,37 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['biznesy'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 111
+        // line 115
         echo "</table></div>
-
-";
-        // line 114
-        echo "<div id=\"reklama\"> 
-    <div >  REKLAMA </div>
-    <div style=\"background-color: Maroon\" >  TANIO </div>
- </div>
-
  <div class=\"spacer\" style=\"clear: both;\"></div> 
 
-
-
 ";
-        // line 124
+        // line 119
         echo "<div id=\"rozrywka\" style=\"float:left; margin-top : 3px;\">
 <h2> Rozrywka </h2>
 <div id=\"s3slider\"  >
     <ul id=\"s3sliderContent\">
         
 \t\t";
-        // line 129
+        // line 124
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable(twig_reverse_filter($this->env, (isset($context["rozrywka"]) ? $context["rozrywka"] : $this->getContext($context, "rozrywka"))));
         foreach ($context['_seq'] as $context["_key"] => $context["rozrywki"]) {
-            // line 130
+            // line 125
             echo "\t\t
 \t\t<li class=\"s3sliderImage\">
 \t\t\t<a href=\"";
-            // line 132
+            // line 127
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("informacje_main_main_default_strona", array("slug" => $this->getAttribute((isset($context["rozrywki"]) ? $context["rozrywki"] : $this->getContext($context, "rozrywki")), "id"))), "html", null, true);
             echo "\">
             <img style=\"width:650px; height:361px\" src=\"";
-            // line 133
+            // line 128
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/documents"), "html", null, true);
             echo "/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["rozrywki"]) ? $context["rozrywki"] : $this->getContext($context, "rozrywki")), "path1"), "html", null, true);
             echo "\">
             <span>";
-            // line 134
+            // line 129
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["rozrywki"]) ? $context["rozrywki"] : $this->getContext($context, "rozrywki")), "header1"), "html", null, true);
             echo "</span></a>
         </li>
@@ -371,7 +366,7 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rozrywki'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 137
+        // line 132
         echo "        <div class=\"clear s3sliderImage\"></div>
     </ul>
 </div>\t
@@ -379,27 +374,27 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
 
 
 ";
-        // line 144
+        // line 139
         echo "<div id=\"cycle_plugin\" style=\"float:left; margin-top:3px; margin-left:3px; background: black;\" >
 <h2>Najpopularniejsze </h2></br>
 <div id=\"s3\" class=\"pics\" style=\"position: relative; float:left; color:white; background:black;\"> 
 ";
-        // line 147
+        // line 142
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["popularne"]) ? $context["popularne"] : $this->getContext($context, "popularne")));
         foreach ($context['_seq'] as $context["_key"] => $context["popularny"]) {
-            // line 148
+            // line 143
             echo "    <div class=\"cycle\" style=\"background:black\"> <img src=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("uploads/documents"), "html", null, true);
             echo "/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["popularny"]) ? $context["popularny"] : $this->getContext($context, "popularny")), "path1"), "html", null, true);
             echo "\" width=\"200\" height=\"110\" />
 \t<div style=\" padding:5px; background:black\">";
-            // line 149
+            // line 144
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["popularny"]) ? $context["popularny"] : $this->getContext($context, "popularny")), "header1"), "html", null, true);
             echo " </div>
 \t<div style=\"clear:both; font-weight:bold; padding:5px;background:black\">";
-            // line 150
+            // line 145
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["popularny"]) ? $context["popularny"] : $this->getContext($context, "popularny")), "header2"), "html", null, true);
             echo "</div> 
 \t
@@ -409,19 +404,58 @@ background-size:contain; background-repeat: no-repeat; background-position : cen
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['popularny'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 154
+        // line 149
         echo "</div> 
 </div>
 
 
 </div>
 
-
-<div id=\"footer\" style=\"background-image:url('";
-        // line 161
+";
+        // line 156
+        echo "<div id=\"footer\" style=\"background-image:url('";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/footer.jpg"), "html", null, true);
         echo "'); 
-width:1000px; height:300px; clear:both;\"> &nbsp;
+width:1000px; height:300px; clear:both;\">
+<table style=\"float:left\" ><th> Szukaj cen </th> <tr> <td> 
+<a href=\"http://www.ceneo.pl\" style=\"float:left\"> <div id=\"ceneo\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Aukcje </th> <tr> <td> 
+<a href=\"http://www.allegro.pl\" style=\"float:left\"> <div id=\"allegro\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Program </th> <tr> <td> 
+<a href=\"www.telemagazyn.pl\" style=\"float:left\"> <div id=\"zapper\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Randka</th> <tr> <td> 
+<a href=\"http://www.sympatia.pl\" style=\"float:left\"> <div id=\"sympatia\"/></div></a>
+<a href=\"http://www.badoo.com\" style=\"float:left\"> <div id=\"badoo\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Gry</th> <tr> <td> 
+<a href=\"http://www.kurnik.pl\" style=\"float:left\"> <div id=\"kurnik\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Torrenty</th> <tr> <td> 
+<a href=\"http://www.thepiratebay.se\" style=\"float:left\"> <div id=\"pirate\"/></div></a>
+<a href=\"http://www.kat.ph\" style=\"float:left\"> <div id=\"kat\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Video</th> <tr> <td> 
+<a href=\"#\" style=\"float:left\"> <div id=\"liveleak\"/></div></a>
+<a href=\"http://www.youtube.com/\" style=\"float:left\"> <div id=\"youtube\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left\" ><th> Pogoda</th> <tr> <td> 
+<a href=\"http://www.pogodynka.pl\" style=\"float:left\"> <div id=\"imgw\"/></div></a>
+</td><tr/></table>
+
+<table style=\"float:left;\" ><th style=\"width:115px\">  Podróże</th> <tr> <td> 
+<a href=\"http://www.tripadvisor.com/\" style=\"float:left\"> <div id=\"advisor\"/></div></a>
+</td><tr/></table>
+
 </div>
 
 
@@ -434,24 +468,24 @@ width:1000px; height:300px; clear:both;\"> &nbsp;
 ";
     }
 
-    // line 173
+    // line 207
     public function block_javascripts($context, array $blocks = array())
     {
         echo "  ";
-        // line 174
+        // line 208
         echo "<script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jqueryRotate.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 175
+        // line 209
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/s3Slider.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 176
+        // line 210
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/cycle_plugin.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 177
+        // line 211
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/main.js"), "html", null, true);
         echo "\" > </script>
 ";
@@ -469,6 +503,6 @@ width:1000px; height:300px; clear:both;\"> &nbsp;
 
     public function getDebugInfo()
     {
-        return array (  455 => 177,  451 => 176,  447 => 175,  442 => 174,  438 => 173,  422 => 161,  413 => 154,  403 => 150,  399 => 149,  392 => 148,  388 => 147,  383 => 144,  375 => 137,  366 => 134,  360 => 133,  356 => 132,  352 => 130,  348 => 129,  341 => 124,  330 => 114,  326 => 111,  311 => 108,  304 => 106,  291 => 105,  288 => 104,  284 => 101,  269 => 98,  262 => 96,  249 => 95,  246 => 94,  238 => 88,  234 => 86,  226 => 84,  220 => 83,  215 => 82,  211 => 81,  205 => 78,  200 => 75,  196 => 72,  181 => 69,  174 => 67,  161 => 66,  158 => 65,  148 => 57,  144 => 56,  140 => 55,  134 => 52,  130 => 51,  126 => 50,  117 => 43,  112 => 39,  98 => 26,  93 => 24,  88 => 22,  84 => 21,  80 => 20,  76 => 19,  73 => 18,  67 => 13,  64 => 12,  58 => 9,  55 => 8,  52 => 7,  46 => 5,  41 => 4,  38 => 3,  32 => 2,);
+        return array (  489 => 211,  485 => 210,  481 => 209,  476 => 208,  472 => 207,  416 => 156,  408 => 149,  398 => 145,  394 => 144,  387 => 143,  383 => 142,  378 => 139,  370 => 132,  361 => 129,  355 => 128,  351 => 127,  347 => 125,  343 => 124,  336 => 119,  331 => 115,  316 => 112,  309 => 110,  296 => 109,  293 => 108,  289 => 105,  274 => 102,  267 => 100,  254 => 99,  251 => 98,  245 => 93,  238 => 88,  234 => 86,  226 => 84,  220 => 83,  215 => 82,  211 => 81,  205 => 78,  200 => 75,  196 => 72,  181 => 69,  174 => 67,  161 => 66,  158 => 65,  148 => 57,  144 => 56,  140 => 55,  134 => 52,  130 => 51,  126 => 50,  117 => 43,  112 => 39,  98 => 26,  93 => 24,  88 => 22,  84 => 21,  80 => 20,  76 => 19,  73 => 18,  67 => 13,  64 => 12,  58 => 9,  55 => 8,  52 => 7,  46 => 5,  41 => 4,  38 => 3,  32 => 2,);
     }
 }

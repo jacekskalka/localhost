@@ -88,6 +88,7 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 <hr/>
 </div>
 {# KOMENTARZE - DODAJ #}
+<p style="font-size: 20px; font-weight:bold"> Dodaj komentarz <i style="font-size:12px">( maksymalnie dwa komentarze )</i> </p>
 <form action="{{ path('informacje_main_main_default_strona', { 'slug': wiadomość.id  }) }}" method="post" {{ form_enctype(form) }}>
 {{ form_widget(form.komentarz) }} {{ form_errors(form.komentarz) }} </br>  
 {{ form_widget(form.podpis) }} {{ form_errors(form.podpis) }} </br>  
@@ -117,24 +118,33 @@ background-size:contain;background-position:center;background-repeat:no-repeat;"
 {# {{ dump(komentarze2) }} #}
 
 {% for komentarz in komentarze %}
-<div class="komentarz"> <i> {{ komentarz.podpis }}</i> | {{ komentarz.czas.date }} 
+<div class="komentarz"> 
 <em style="float:right"> {{ komentarz.minus }} </em>
 <em style="display:none" > {{ komentarz.id }} </em>
 <img class="minus" style="width:20px;float:right;" src="{{ asset('img/thumb_down.png') }}"/></a>
 <img class="plus" style="width:20px;float:right;" src="{{ asset('img/thumb_up.png') }}"/></a>
 <em style="float:right"> {{ komentarz.plus }} </em>
- <hr/> {{ komentarz.komentarz |nl2br }} </br> </div> 
- <em class="odpowiedz" style="margin-left:10px; color:white; background-color:green; float:left"> Odpowiedz </em> 
+ </br> {{ komentarz.komentarz |nl2br }} </br> </div>  
+ <div class="pasek" style="width: 600px; margin 0px; margin-left:5px; ">
+ <i> {{ komentarz.podpis }}</i> | {{ komentarz.czas.date }} 
+<em class="odpowiedz" style=" color:white; background-color:green; float:right;margin: 0px 5px;"> Odpowiedz </em>
+ <em class="rozwin" style=" color:white; background-color:orange; float:right; margin: 0px 5px;"> Rozwiń </em> 
+ </div>
  <em style="display:none" > {{ komentarz.id }} </em>
 	{% for komentarz2 in komentarze2 %}
 		{% if komentarz2.parent.id == komentarz.id %}
-		<div class="komentarz2"> <i> {{ komentarz2.podpis }}</i> | {{ komentarz2.czas.date }} 
+		<div class="komentarz2"> 
 		<em style="float:right"> {{ komentarz2.minus }} </em>
 		<em style="display:none" > {{ komentarz2.id }} </em>
 		<img class="minus2" style="width:20px;float:right;" src="{{ asset('img/thumb_down.png') }}"/></a>
 		<img class="plus2" style="width:20px;float:right;" src="{{ asset('img/thumb_up.png') }}"/></a>
 		<em style="float:right"> {{ komentarz2.plus }} </em>
-        <hr/> {{ komentarz2.komentarz |nl2br }} </br> </div> 
+        <br/> {{ komentarz2.komentarz |nl2br }} </br> </div> 
+		 <div class="pasek2" style="width: 600px;  margin-left:100px ">
+ <i> {{ komentarz2.podpis }}</i> | {{ komentarz2.czas.date }} 
+<em class="odpowiedz" style=" color:white; background-color:green; float:right;margin: 0px 5px;"> Odpowiedz </em>
+ <em class="rozwin" style=" color:white; background-color:orange; float:right; margin: 0px 5px;"> Rozwiń </em> 
+ </div>
 		{% endif %}
 	{% endfor %}	
 {% endfor %}

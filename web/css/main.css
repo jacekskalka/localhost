@@ -64,10 +64,14 @@ body { -webkit-appearance: none; }
 
 
 			
-#content { position:relative; min-height: 1050px; padding-top:5px; margin:3px; width:1000px;
-background-image : url('../img/pattern.jpg');
-}
-#wrapper { padding : 5px; margin:10px auto; display:block; width: 1000px; background-color : #E7E7E7;}
+#content { position:relative; min-height: 1070px; padding-top:5px; margin:3px; width:1000px;
+/*background-image : url('../img/pattern.jpg');
+			box-shadow: 6px 0px 10px -7px #888, -6px 0px 10px -7px #888;
+			-webkit-box-shadow : 0px 0px 20px rgba(0,0,0,.23 );
+			-moz-box-shadow : 0px 0px 20px rgba(0,0,0,.23 ); } */ }
+
+#wrapper { padding : 5px; margin:10px auto; display:block; width: 1000px; background-color : #E7E7E7;
+		box-shadow: 6px 0px 10px -7px #888, -6px 0px 10px -7px #888; }
 
 .wiadomości { display:block; float:left; position:relative;  border-left:1px solid black;border-top:1px solid black; width: 320px; 
 			margin: 0px 5px; background-color : #E3E7E8 ;
@@ -103,9 +107,9 @@ a:link, a:visited { text-decoration : none; color : #077193;word-wrap:break-word
 }
 /* REKLAMA */
 
-#reklama div { display:block;width: 650px; height: 80px; background-color: orange; color:red; float:left;
-font-size: 40px; font-weight: bold; text-align: center; border :1px solid red; margin-top:5px;  }
-
+#reklama, #reklama div { display:block;width: 650px; height: 65px; background-color: orange; color:white; float:left; padding-top: 20px;
+font-size: 50px; font-weight: bold; text-align: center; border :1px solid red; margin:0px 0px 10px 7px;  }
+#reklama div  { margin :0px;}
 /* SLIDER */
 #s3slider { display:block; float:left; position:relative; margin: 0px 5px 5px 5px ; 
     width: 650px; /* important to be same as image width */
@@ -233,3 +237,44 @@ font-weight:bold;
 #nav a { border: 1px solid #ccc; background: #fc0; text-decoration: none; margin: 0 5px; padding: 3px 5px;  }
 #nav a.activeSlide { background: #ea0 }
 #nav a:focus { outline: none; }
+
+
+/*  IKONY w footeerze */
+
+#ceneo { background-image:url('../ikony/ceneo1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#ceneo:hover { background-image:url('../ikony/ceneo2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#allegro { background-image:url('../ikony/allegro1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#allegro:hover { background-image:url('../ikony/allegro2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#zapper { background-image:url('../ikony/zapper1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#zapper:hover { background-image:url('../ikony/zapper2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#sympatia { background-image:url('../ikony/sympatia1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#sympatia:hover { background-image:url('../ikony/sympatia2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#badoo { background-image:url('../ikony/badoo1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#badoo:hover { background-image:url('../ikony/badoo2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#kurnik { background-image:url('../ikony/kurnik1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#kurnik:hover { background-image:url('../ikony/kurnik2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#liveleak { background-image:url('../ikony/liveleak1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#liveleak:hover { background-image:url('../ikony/liveleak2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#imgw { background-image:url('../ikony/imgw1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#imgw:hover { background-image:url('../ikony/imgw2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#pirate { background-image:url('../ikony/pirate1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#pirate:hover { background-image:url('../ikony/pirate2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#kat { background-image:url('../ikony/kat1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#kat:hover { background-image:url('../ikony/kat2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#advisor { background-image:url('../ikony/advisor1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#advisor:hover { background-image:url('../ikony/advisor2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+#youtube { background-image:url('../ikony/youtube1.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+#youtube:hover { background-image:url('../ikony/youtube2.png'); width: 80px; height:80px; background-repeat:no-repeat; }
+
+th { border-left:1px solid white; background:black; color:white; }
