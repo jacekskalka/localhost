@@ -474,8 +474,10 @@ width:1000px; height:300px; clear:both;\">
 <li class=\"jcarousel-item-1\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/tw76EhR-qoo\" frameborder=\"0\" allowfullscreen></iframe></li>
 <li class=\"jcarousel-item-2\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/6UGvwmT0P9k\" frameborder=\"0\" allowfullscreen></iframe></li>
 <li class=\"jcarousel-item-3\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/S29heEskC18\" frameborder=\"0\" allowfullscreen></iframe></li>
-<li class=\"jcarousel-item-4\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/tw76EhR-qoo\" frameborder=\"0\" allowfullscreen></iframe></li>
-<li class=\"jcarousel-item-5\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/tw76EhR-qoo\" frameborder=\"0\" allowfullscreen></iframe></li>
+<li class=\"jcarousel-item-4\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/r939HzKpa98\" frameborder=\"0\" allowfullscreen></iframe></li>
+<li class=\"jcarousel-item-5\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/7gWZ0WNlFQY\" frameborder=\"0\" allowfullscreen></iframe></li>
+<li class=\"jcarousel-item-6\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/embed/nsnouus4PVs\" frameborder=\"0\" allowfullscreen></iframe></li>
+<li class=\"jcarousel-item-6\" style=\"width:220px;height:150px\"><iframe width=\"220\" height=\"150\" src=\"http://www.youtube.com/watch?v=u_emkznMges\" frameborder=\"0\" allowfullscreen></iframe></li>
 </ul>
 
     </div>
@@ -498,28 +500,28 @@ width:1000px; height:300px; clear:both;\">
 ";
     }
 
-    // line 233
+    // line 235
     public function block_javascripts($context, array $blocks = array())
     {
         echo "  ";
-        // line 234
+        // line 236
         echo "<script type=\"text/javascript\" src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jqueryRotate.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 235
+        // line 237
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/s3Slider.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 236
+        // line 238
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/cycle_plugin.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 237
+        // line 239
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("sorgolla/lib/jquery.jcarousel.min.js"), "html", null, true);
         echo "\" > </script>
 <script type=\"text/javascript\" src=\"";
-        // line 238
+        // line 240
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/main.js"), "html", null, true);
         echo "\" > </script>
 
@@ -538,6 +540,6 @@ width:1000px; height:300px; clear:both;\">
 
     public function getDebugInfo()
     {
-        return array (  523 => 238,  519 => 237,  515 => 236,  511 => 235,  506 => 234,  502 => 233,  468 => 202,  423 => 159,  415 => 152,  405 => 148,  401 => 147,  394 => 146,  390 => 145,  385 => 142,  377 => 135,  368 => 132,  362 => 131,  358 => 130,  354 => 128,  350 => 127,  343 => 122,  338 => 118,  323 => 115,  316 => 113,  303 => 112,  300 => 111,  296 => 108,  281 => 105,  274 => 103,  261 => 102,  258 => 101,  252 => 96,  241 => 89,  233 => 87,  227 => 86,  188 => 72,  181 => 70,  168 => 69,  137 => 54,  124 => 46,  62 => 10,  378 => 91,  361 => 89,  355 => 88,  351 => 87,  348 => 86,  344 => 85,  339 => 84,  322 => 83,  310 => 73,  293 => 71,  283 => 69,  280 => 68,  271 => 66,  254 => 65,  228 => 56,  218 => 84,  206 => 51,  161 => 39,  148 => 36,  238 => 71,  226 => 65,  221 => 63,  217 => 62,  207 => 78,  203 => 75,  199 => 56,  195 => 55,  187 => 53,  179 => 51,  175 => 50,  129 => 39,  117 => 37,  99 => 34,  87 => 23,  69 => 29,  56 => 8,  40 => 8,  23 => 3,  301 => 100,  295 => 96,  292 => 95,  289 => 94,  287 => 70,  282 => 90,  276 => 67,  273 => 85,  270 => 84,  268 => 83,  263 => 80,  249 => 79,  245 => 91,  230 => 66,  222 => 85,  220 => 72,  215 => 53,  211 => 52,  204 => 66,  198 => 63,  185 => 61,  183 => 52,  177 => 58,  160 => 57,  112 => 25,  82 => 20,  65 => 16,  38 => 3,  144 => 35,  141 => 55,  135 => 40,  126 => 45,  109 => 41,  103 => 34,  67 => 19,  61 => 16,  47 => 9,  105 => 29,  93 => 33,  76 => 22,  72 => 14,  68 => 7,  27 => 4,  91 => 24,  84 => 28,  94 => 39,  88 => 27,  79 => 23,  59 => 9,  21 => 2,  44 => 10,  31 => 5,  28 => 3,  225 => 96,  216 => 90,  212 => 81,  205 => 84,  201 => 83,  196 => 80,  194 => 62,  191 => 54,  189 => 50,  186 => 76,  180 => 72,  172 => 67,  159 => 44,  154 => 59,  147 => 58,  132 => 48,  127 => 49,  121 => 45,  118 => 44,  114 => 42,  104 => 36,  100 => 27,  78 => 12,  75 => 30,  71 => 15,  58 => 15,  34 => 6,  26 => 6,  24 => 1,  25 => 3,  19 => 1,  70 => 20,  63 => 6,  46 => 5,  22 => 2,  163 => 63,  155 => 60,  152 => 49,  149 => 51,  145 => 46,  139 => 34,  131 => 42,  123 => 38,  120 => 46,  115 => 39,  106 => 35,  101 => 36,  96 => 21,  83 => 22,  80 => 21,  74 => 16,  66 => 12,  55 => 15,  52 => 15,  50 => 6,  43 => 9,  41 => 4,  37 => 17,  35 => 5,  32 => 2,  29 => 2,  184 => 70,  178 => 41,  171 => 62,  165 => 68,  162 => 57,  157 => 56,  153 => 43,  151 => 59,  143 => 54,  138 => 51,  136 => 50,  133 => 53,  130 => 47,  122 => 33,  119 => 42,  116 => 35,  111 => 36,  108 => 37,  102 => 30,  98 => 22,  95 => 25,  92 => 28,  89 => 22,  85 => 21,  81 => 31,  73 => 11,  64 => 17,  60 => 23,  57 => 5,  54 => 14,  51 => 13,  48 => 12,  45 => 8,  42 => 7,  39 => 8,  36 => 7,  33 => 4,  30 => 5,);
+        return array (  525 => 240,  521 => 239,  517 => 238,  513 => 237,  508 => 236,  504 => 235,  468 => 202,  423 => 159,  415 => 152,  405 => 148,  401 => 147,  394 => 146,  390 => 145,  385 => 142,  377 => 135,  368 => 132,  362 => 131,  358 => 130,  354 => 128,  350 => 127,  343 => 122,  338 => 118,  323 => 115,  316 => 113,  303 => 112,  300 => 111,  296 => 108,  281 => 105,  274 => 103,  261 => 102,  258 => 101,  252 => 96,  245 => 91,  241 => 89,  233 => 87,  227 => 86,  222 => 85,  218 => 84,  212 => 81,  207 => 78,  203 => 75,  188 => 72,  181 => 70,  168 => 69,  165 => 68,  155 => 60,  151 => 59,  147 => 58,  141 => 55,  137 => 54,  133 => 53,  124 => 46,  119 => 42,  105 => 29,  100 => 27,  95 => 25,  91 => 24,  87 => 23,  83 => 22,  80 => 21,  74 => 16,  71 => 15,  66 => 12,  62 => 10,  59 => 9,  56 => 8,  50 => 6,  46 => 5,  41 => 4,  38 => 3,  32 => 2,);
     }
 }

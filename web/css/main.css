@@ -47,8 +47,11 @@ table {
 }
 
 /* RESET END  */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
-body { -webkit-appearance: none; } 
+
+body { -webkit-appearance: none;	font-family: "Open Sans", Helvetica, sans-serif;
+	font-weight: 300; } 
 
 
 #header { position:relative;display:block; width : 1000px; clear:both; height: auto;
